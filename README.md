@@ -42,20 +42,25 @@
 ```markdown
 uwc-frontent/
 |__ src/
-|   |__ assets/				- dynamic assets
-|   |__ components/			- shared components
-|   |__ pages/				- page-level components
-|   |__ scss/styles.scss	- global styling
-|   |__ main.jsx			- main js entry
-|__ mocks/					- mock data
-|__ tests/					- testing
-|__ public/					- public assets
-|__ index.html				- HTML entry
-|__ vite.config.js			- Vite config
+|   |__ assets/ - dynamic assets
+|   |__ components/ - shared components
+|   |__ pages/ - page-level components
+|   |__ scss/styles.scss - global styling
+|   |__ main.jsx - main js entry
+|__ mocks/ - mock data
+|__ tests/ - testing
+|__ public/ - public assets
+|__ index.html - HTML entry
+|__ vite.config.js - Vite config
 ```
 
-
 ## Conventions
+
+### Commits
+
+- Commit messages should be in the form `<action> + <target>`, eg. _updated configs_
+  - `<action>`: in past tense, eg. _added_, _updated_
+  - `<target>`: files, packages, or features, eg. _side bar component_, _Bootstrap_, _assign task module_
 
 ### Naming
 
