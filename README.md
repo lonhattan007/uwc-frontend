@@ -12,6 +12,7 @@
 
 - Run the following commands inside the project folder:
 	```bash
+	nvm install && nvm use
 	npm install
 	npm run dev
 	```
@@ -35,6 +36,24 @@
 - When a feature is ready for merging, create a `pull request`.
 
 - __NEVER PUSH TO THE MAIN BRANCH__
+
+## Project Structure
+
+```markdown
+uwc-frontent/
+|__ src/
+|   |__ assets/				- dynamic assets
+|   |__ components/			- shared components
+|   |__ pages/				- page-level components
+|   |__ scss/styles.scss	- global styling
+|   |__ main.jsx			- main js entry
+|__ mocks/					- mock data
+|__ tests/					- testing
+|__ public/					- public assets
+|__ index.html				- HTML entry
+|__ vite.config.js			- Vite config
+```
+
 
 ## Conventions
 
