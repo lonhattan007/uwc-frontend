@@ -48,7 +48,7 @@ uwc-frontent/
 |   |__ scss/styles.scss - global styling
 |   |__ main.jsx - main js entry
 |__ mocks/ - mock data
-|__ tests/ - testing
+|__ tests/ - testing setup
 |__ public/ - public assets
 |__ index.html - HTML entry
 |__ vite.config.js - Vite config

@@ -10,4 +10,9 @@ export default defineConfig({
       "~bootstrap": path.resolve((__dirname, "node_modules/bootstrap")),
     },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./tests/setup.js",
+  },
 });
