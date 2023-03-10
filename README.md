@@ -37,6 +37,19 @@
 
 - __NEVER PUSH TO THE MAIN BRANCH__
 
+# Tech
+
+## Tech stacks
+
+- `Node 16 & npm`: Runtime & package manager
+- `Vite`: Module bundler
+- [React](https://reactjs.org/docs/getting-started.html): Core UI library
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) & [Reactstrap](https://reactstrap.github.io/?path=/story/home-installation--page) : styling and components library
+- [SASS](https://sass-lang.com/documentation/): CSS preprocessor
+- [Redux](https://redux.js.org/introduction/getting-started): State management
+- [React Router](https://reactrouter.com/en/main/start/tutorial): Routing library
+- [Vitest](https://vitest.dev/guide/): Testing library
+
 ## Project Structure
 
 ```markdown
