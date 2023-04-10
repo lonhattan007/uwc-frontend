@@ -1,0 +1,14 @@
+.sidebar-container {
+	height: 100vh;
+	display: flex;
+	overflow: scroll initial;
+}
+
+.sidebar-footer {
+	text-align: start;
+
+	a {
+		padding: 5px;
+		color: inherit;
+	}
+}
