@@ -13,11 +13,15 @@ import './Sidebar.scss';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar-container">
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
+    <div className="sidebar-container col-3">
+      <CDBSidebar
+        className="sidebar"
+        textColor="#fff"
+        backgroundColor="#1e1e2e"
+      >
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a
-            href="/"
+            href="/user-info"
             className="text-decoration-none"
             style={{ color: 'inherit' }}
           >
@@ -27,25 +31,29 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/calendar" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="calendar-alt">
                 Lịch biểu
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/tasks" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="tasks">
                 Ca và nhiệm vụ
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink
+              exact
+              to="/collecting-sites"
+              activeClassName="activeClicked"
+            >
               <CDBSidebarMenuItem icon="map-marked-alt">
                 Điểm thu gom
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/staffs" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="users">Nhân viên</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/" activeClassName="activeClicked">
+            <NavLink exact to="/settings" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="cog">Cài đặt</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>

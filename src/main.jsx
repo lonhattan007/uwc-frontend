@@ -9,19 +9,13 @@ import store from './store/store';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './components/App';
-import Navbar from './components/Navbar';
+import MainPage from '@pages/main/MainPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <div className="container">
-          <div className="row">
-            <Navbar />
-            <App />
-          </div>
-        </div>
+        <MainPage/>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
