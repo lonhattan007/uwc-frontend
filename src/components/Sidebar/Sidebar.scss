@@ -1,7 +1,6 @@
-.sidebar-container {
+#sidebar-container {
 	height: 100vh;
-	display: flex;
-	overflow: scroll initial;
+	overflow: hidden;
 }
 
 .sidebar {
@@ -12,7 +11,9 @@
 	text-align: start;
 
 	a {
-		padding: 5px;
+		padding: 0 12px;
 		color: inherit;
+		position: absolute;
+		bottom: 10px;
 	}
 }
