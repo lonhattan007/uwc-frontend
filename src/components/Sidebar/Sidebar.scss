@@ -2,6 +2,7 @@
 	height: 100vh;
 	display: flex;
 	overflow: scroll initial;
+	padding-left: 0;
 }
 
 .sidebar {
@@ -10,9 +11,11 @@
 
 .sidebar-footer {
 	text-align: start;
-
+	height: 100%;
 	a {
 		padding: 5px;
 		color: inherit;
+		position: absolute;
+		bottom: 10px;
 	}
 }
