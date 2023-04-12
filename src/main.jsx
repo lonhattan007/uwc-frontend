@@ -9,8 +9,8 @@ import store from './store/store';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-
 import MainPage from '@pages/main/MainPage';
+import ShiftPage from '@pages/SiftPage/shiftPage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/calendar',
     element: <MainPage />,
+  },
+  {
+    path: '/shift',
+    element: <ShiftPage />
   },
   {
     path: '/tasks',
