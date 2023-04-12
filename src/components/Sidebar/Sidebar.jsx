@@ -13,7 +13,7 @@ import './Sidebar.scss';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar-container col-3">
+    <div id="sidebar-container">
       <CDBSidebar
         className="sidebar"
         textColor="#fff"
