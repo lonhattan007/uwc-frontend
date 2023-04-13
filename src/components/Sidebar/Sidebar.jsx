@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -17,18 +16,20 @@ const Sidebar = () => {
   };
 
   return (
-    <div id="sidebar-container">
+    <>
       <CDBSidebar
+        id="sidebar-container"
         className="sidebar"
         textColor="#fff"
         backgroundColor="#1e1e2e"
+        breakpoint={960}
       >
         <CDBSidebarHeader
           className="sidebar-header"
           prefix={<i className="fa fa-bars fa-large"></i>}
         >
           <a href="/user-info" className="text-decoration-none">
-            Thông tin cá nhân
+            Back Officer #1
           </a>
         </CDBSidebarHeader>
 
@@ -74,7 +75,7 @@ const Sidebar = () => {
           </a>
         </CDBSidebarFooter>
       </CDBSidebar>
-    </div>
+    </>
   );
 };
 
