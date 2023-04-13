@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <>
       <CDBSidebar
-				id="sidebar-container"
+        id="sidebar-container"
         className="sidebar"
         textColor="#fff"
         backgroundColor="#1e1e2e"
