@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: '/tasks',
+    path: '/shifts',
     element: <MainPage />,
   },
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: '/loggout',
+    path: '/logout',
     element: <MainPage />,
   },
 ]);

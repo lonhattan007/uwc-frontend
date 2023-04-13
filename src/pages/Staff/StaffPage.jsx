@@ -3,9 +3,9 @@ import { StaffView } from '@components/StaffView/StaffView';
 
 const StaffPage = () => {
   return (
-    <div className="container row">
+    <div className='container row'>
       <Sidebar />
-      <div className="col-9">
+      <div>
         <StaffView />
       </div>
     </div>

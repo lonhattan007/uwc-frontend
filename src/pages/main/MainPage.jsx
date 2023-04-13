@@ -1,14 +1,16 @@
 import App from '@components/App';
 import Sidebar from '@components/Sidebar';
 
+import './MainPage.scss';
+
 const MainPage = () => {
   return (
-    <div className="container row">
+    <>
       <Sidebar />
-      <div className="col-9" id="workspace">
+      <div id="workspace">
         <App />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -12,60 +12,71 @@ import { NavLink } from 'react-router-dom';
 import './Sidebar.scss';
 
 const Sidebar = () => {
+  const getRoute = () => {
+    return document.URL.split('/')[3];
+  };
+
   return (
-    <div className="sidebar-container col-3">
+    <>
       <CDBSidebar
+        id="sidebar-container"
         className="sidebar"
         textColor="#fff"
         backgroundColor="#1e1e2e"
+        breakpoint={960}
       >
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a
-            href="/user-info"
-            className="text-decoration-none"
-            style={{ color: 'inherit' }}
-          >
-            Thông tin cá nhân
+        <CDBSidebarHeader
+          className="sidebar-header"
+          prefix={<i className="fa fa-bars fa-large"></i>}
+        >
+          <a href="/user-info" className="text-decoration-none">
+            Back Officer #1
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/calendar" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="calendar-alt">
+            <NavLink to="/calendar">
+              <CDBSidebarMenuItem
+                icon="calendar-alt"
+                active={getRoute() === 'calendar'}
+              >
                 Lịch biểu
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/tasks" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="tasks">
+            <NavLink to="/shifts">
+              <CDBSidebarMenuItem icon="tasks" active={getRoute() === 'shifts'}>
                 Ca và nhiệm vụ
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink
-              exact
-              to="/collecting-sites"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem icon="map-marked-alt">
+            <NavLink to="/collecting-sites">
+              <CDBSidebarMenuItem
+                icon="map-marked-alt"
+                active={getRoute() === 'collecting-sites'}
+              >
                 Điểm thu gom
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/staffs" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="users">Nhân viên</CDBSidebarMenuItem>
+            <NavLink to="/staffs">
+              <CDBSidebarMenuItem icon="users" active={getRoute() === 'staffs'}>
+                Nhân viên
+              </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/settings" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="cog">Cài đặt</CDBSidebarMenuItem>
+            <NavLink to="/settings">
+              <CDBSidebarMenuItem icon="cog" active={getRoute() === 'settings'}>
+                Cài đặt
+              </CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
         <CDBSidebarFooter className="sidebar-footer">
-          <a href="/logout" className="logOut">
+          <a href="/logout" className="logout activeClicked">
             Đăng xuất
           </a>
         </CDBSidebarFooter>
       </CDBSidebar>
-    </div>
+    </>
   );
 };
 

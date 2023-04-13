@@ -75,7 +75,7 @@ export const StaffInfo = ({ data }) => {
 
   return (
     <div>
-      <div className="grid">
+      <div className="info">
         {[getFirstRow(data), getSecondRow(data), getThirdRow(data)].map(
           (row) => (
             <div>
