@@ -75,9 +75,15 @@ const Sidebar = () => {
         </CDBSidebarContent>
 
         <CDBSidebarFooter className="sidebar-footer">
-          <a href="/logout" className="logout activeClicked">
+          {/*<a href="/logout" className="logout activeClicked">
             Đăng xuất
-          </a>
+          </a>*/}
+          <SidebarItem
+            route="logout"
+            icon="sign-out-alt"
+            title="Đăng xuất"
+            active={false}
+          />
         </CDBSidebarFooter>
       </CDBSidebar>
     </>
