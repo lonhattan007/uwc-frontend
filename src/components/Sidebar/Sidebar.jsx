@@ -1,19 +1,45 @@
-import React, { useEffect, useState } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
-  CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+import SidebarItem from './SidebarItem';
 
 import './Sidebar.scss';
 
+const SIDEBAR_ITEMS = [
+  {
+    route: 'calendar',
+    icon: 'calendar-alt',
+    title: 'Lịch biểu',
+  },
+  {
+    route: 'shifts',
+    icon: 'tasks',
+    title: 'Ca và nhiệm vụ',
+  },
+  {
+    route: 'collecting-sites',
+    icon: 'map-marked-alt',
+    title: 'Điểm thu gom',
+  },
+  {
+    route: 'staffs',
+    icon: 'users',
+    title: 'Nhân viên',
+  },
+  {
+    route: 'settings',
+    icon: 'cog',
+    title: 'Cài đặt',
+  },
+];
+
 const Sidebar = () => {
-  const getRoute = () => {
-    return document.URL.split('/')[3];
+  const compareRoute = (route) => {
+    return document.URL.split('/')[3] === route;
   };
 
   return (
@@ -36,37 +62,15 @@ const Sidebar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink to="/calendar">
-              <CDBSidebarMenuItem
-                icon="calendar-alt"
-                active={getRoute() === 'calendar'}
-              >
-                Lịch biểu
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink to="/shifts">
-              <CDBSidebarMenuItem icon="tasks" active={getRoute() === 'shifts'}>
-                Ca và nhiệm vụ
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink to="/collecting-sites">
-              <CDBSidebarMenuItem
-                icon="map-marked-alt"
-                active={getRoute() === 'collecting-sites'}
-              >
-                Điểm thu gom
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink to="/staffs">
-              <CDBSidebarMenuItem icon="users" active={getRoute() === 'staffs'}>
-                Nhân viên
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink to="/settings">
-              <CDBSidebarMenuItem icon="cog" active={getRoute() === 'settings'}>
-                Cài đặt
-              </CDBSidebarMenuItem>
-            </NavLink>
+            {SIDEBAR_ITEMS.map((item) => (
+              <SidebarItem
+                route={item.route}
+                icon={item.icon}
+                title={item.title}
+                active={compareRoute(item.route)}
+                key={item.route + 'option'}
+              />
+            ))}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
