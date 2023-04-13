@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
-import StaffPage from '@pages/staff/StaffPage';
+import StaffPage from '@pages/Staff/StaffPage';
 const router = createBrowserRouter([
   {
     path: '/',
