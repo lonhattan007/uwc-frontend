@@ -36,7 +36,7 @@ const Sidebar = () => {
                 Lịch biểu
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/tasks" activeClassName="activeClicked">
+            <NavLink exact to="/shifts" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="tasks">
                 Ca và nhiệm vụ
               </CDBSidebarMenuItem>
