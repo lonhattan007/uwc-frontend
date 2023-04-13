@@ -1,27 +1,27 @@
 #sidebar-container {
-	height: 100vh;
-	overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar {
-	width: 100% !important;
+  width: 100% !important;
 
-	a {
-		color: inherit;
+  a {
+    color: inherit;
 
-		:hover {
-			background-color: #5d5a88;
-			border-radius: 10px;
-		}
-	}
+    :hover {
+      background-color: #5d5a88;
+      border-radius: 10px;
+    }
+  }
 }
 
 .sidebar-footer {
-	text-align: start;
+  text-align: start;
 
-	a {
-		padding: 0 12px;
-		position: absolute;
-		bottom: 10px;
-	}
+  a {
+    padding: 0 12px;
+    position: absolute;
+    bottom: 10px;
+  }
 }
