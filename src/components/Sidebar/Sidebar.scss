@@ -5,6 +5,15 @@
 
 .sidebar {
 	width: 100% !important;
+
+	a {
+		color: inherit;
+
+		:hover {
+			background-color: #5d5a88;
+			border-radius: 10px;
+		}
+	}
 }
 
 .sidebar-footer {
@@ -12,7 +21,6 @@
 
 	a {
 		padding: 0 12px;
-		color: inherit;
 		position: absolute;
 		bottom: 10px;
 	}
