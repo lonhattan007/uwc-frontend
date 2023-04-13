@@ -1,3 +1,9 @@
+@mixin selected-option {
+  color: #fff !important;
+  background-color: #5d5a88 !important;
+  border-radius: 10px;
+}
+
 #sidebar-container {
   height: 100vh;
   overflow: hidden;
@@ -10,9 +16,12 @@
     color: inherit;
 
     :hover {
-      background-color: #5d5a88;
-      border-radius: 10px;
+      @include selected-option;
     }
+  }
+
+  .active {
+    @include selected-option;
   }
 }
 
