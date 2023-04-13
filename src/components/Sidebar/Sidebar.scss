@@ -1,19 +1,19 @@
 #sidebar-container {
-	height: 100vh;
-	overflow: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar {
-	width: 100% !important;
+  width: 100% !important;
 }
 
 .sidebar-footer {
-	text-align: start;
+  text-align: start;
 
-	a {
-		padding: 0 12px;
-		color: inherit;
-		position: absolute;
-		bottom: 10px;
-	}
+  a {
+    padding: 0 12px;
+    color: inherit;
+    position: absolute;
+    bottom: 10px;
+  }
 }
