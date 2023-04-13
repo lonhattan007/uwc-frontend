@@ -59,16 +59,34 @@
 ```markdown
 uwc-frontent/
 |__ src/
-|   |__ assets/ - dynamic assets
-|   |__ components/ - shared components
-|   |__ pages/ - page-level components
-|   |__ scss/styles.scss - global styling
-|   |__ main.jsx - main js entry
-|__ mocks/ - mock data
-|__ tests/ - testing setup
-|__ public/ - public assets
-|__ index.html - HTML entry
-|__ vite.config.js - Vite config
+|   |__ assets/.................... - dynamic assets
+|   |__ components/................ - shared components
+|   |   |__ componentsA/
+|   |   |   |__ ComponentA.jsx
+|   |   |   |__ SubComponentB.jsx
+|   |   |   |__ ComponentA.scss
+|   |   |   |__ ...
+|   |   |   |__ index.js........... - exporting modules
+|   |   |__ ...
+|   |__ pages/..................... - page-level components
+|   |   |__ pageA/
+|   |   |   |__ PageA.jsx
+|   |   |   |__ SubComponentB.jsx
+|   |   |   |__ PageA.scss
+|   |   |   |__ ...
+|   |   |   |__ index.js........... - exporting modules
+|   |   |__ ...
+|   |__ scss/styles.scss........... - global styling
+|   |__ main.jsx................... - main js entry
+|__ mocks/......................... - mock data
+|__ |__ entityX/
+|__ |   |__ entityXdata.js
+|__ |__ ...
+|__ tests/......................... - testing setup
+|__ public/........................ - public assets
+|__ index.html..................... - HTML entry
+|__ vite.config.js................. - Vite config
+|__ ... (other config files)
 ```
 
 ## Conventions
