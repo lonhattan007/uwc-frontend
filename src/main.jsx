@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
-import {StaffView} from '@components/StaffView/StaffView';
+import StaffPage from '@pages/staff/StaffPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/staffs',
-    element: <StaffView />,
+    element: <StaffPage />,
   },
   {
     path: '/settings',

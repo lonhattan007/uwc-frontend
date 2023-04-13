@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { staffData } from '../../../mocks/staffdata';
-import Sidebar from '@components/Sidebar';
 import { StaffInfo } from './StaffInfo/InfoStaff';
 
 import './style.scss';
@@ -9,8 +7,7 @@ import './style.scss';
 export const StaffView = () => {
   const [chosen, setChosen] = useState(0);
   return (
-    <div className="container row">
-      <Sidebar />
+    <div>
       <div className="grid-container">
         <div className="grid-item">
           <h3>Nhân viên</h3>
