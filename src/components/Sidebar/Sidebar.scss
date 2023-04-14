@@ -1,19 +1,36 @@
+@mixin selected-option {
+    color: #fff !important;
+    background-color: #5d5a88 !important;
+    border-radius: 10px;
+}
+
 #sidebar-container {
-	height: 100vh;
-	overflow: hidden;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar {
-	width: 100% !important;
+    a {
+        color: inherit;
+
+        :hover {
+            @include selected-option;
+        }
+    }
+
+    .active {
+        @include selected-option;
+    }
 }
 
 .sidebar-footer {
-	text-align: start;
-	height: 100%;
-	a {
-		padding: 0 12px;
-		color: inherit;
-		position: absolute;
-		bottom: 10px;
-	}
+    a {
+        // padding: 0 12px;
+        // position: absolute;
+        // bottom: 10px;
+
+        // :hover {
+        // 	background-color: inherit !important;
+        // }
+    }
 }

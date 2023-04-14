@@ -1,71 +1,92 @@
-import React from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarFooter,
   CDBSidebarHeader,
   CDBSidebarMenu,
-  CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink } from 'react-router-dom';
+import SidebarItem from './SidebarItem';
 
 import './Sidebar.scss';
 
+const SIDEBAR_ITEMS = [
+  {
+    route: 'calendar',
+    icon: 'calendar-alt',
+    title: 'Lịch biểu',
+  },
+  {
+    route: 'shifts',
+    icon: 'tasks',
+    title: 'Ca và nhiệm vụ',
+  },
+  {
+    route: 'collecting-sites',
+    icon: 'map-marked-alt',
+    title: 'Điểm thu gom',
+  },
+  {
+    route: 'staffs',
+    icon: 'users',
+    title: 'Nhân viên',
+  },
+  {
+    route: 'settings',
+    icon: 'cog',
+    title: 'Cài đặt',
+  },
+];
+
 const Sidebar = () => {
+  const compareRoute = (route) => {
+    return document.URL.split('/')[3] === route;
+  };
+
   return (
-    <div id="sidebar-container">
+    <>
       <CDBSidebar
+        id="sidebar-container"
         className="sidebar"
         textColor="#fff"
         backgroundColor="#1e1e2e"
+        breakpoint={960}
       >
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a
-            href="/user-info"
-            className="text-decoration-none"
-            style={{ color: 'inherit' }}
-          >
-            Thông tin cá nhân
+        <CDBSidebarHeader
+          className="sidebar-header"
+          prefix={<i className="fa fa-bars fa-large"></i>}
+        >
+          <a href="/user-info" className="text-decoration-none">
+            Back Officer #1
           </a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/calendar" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="calendar-alt">
-                Lịch biểu
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/tasks" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="tasks">
-                Ca và nhiệm vụ
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink
-              exact
-              to="/collecting-sites"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem icon="map-marked-alt">
-                Điểm thu gom
-              </CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/staffs" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="users">Nhân viên</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact to="/settings" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="cog">Cài đặt</CDBSidebarMenuItem>
-            </NavLink>
+            {SIDEBAR_ITEMS.map((item) => (
+              <SidebarItem
+                route={item.route}
+                icon={item.icon}
+                title={item.title}
+                active={compareRoute(item.route)}
+                key={item.route + 'option'}
+              />
+            ))}
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
         <CDBSidebarFooter className="sidebar-footer">
-          <a href="/logout" className="logOut">
+          {/*<a href="/logout" className="logout activeClicked">
             Đăng xuất
-          </a>
+          </a>*/}
+          <SidebarItem
+            route="logout"
+            icon="sign-out-alt"
+            title="Đăng xuất"
+            active={false}
+          />
         </CDBSidebarFooter>
       </CDBSidebar>
-    </div>
+    </>
   );
 };
 

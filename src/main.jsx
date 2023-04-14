@@ -12,49 +12,46 @@ import { BrowserRouter } from 'react-router-dom';
 import MainPage from '@pages/main/MainPage';
 import ShiftPage from '@pages/SiftPage/shiftPage';
 
+import StaffPage from '@pages/Staff/StaffPage';
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainPage />,
-  },
-  {
-    path: '/user-info',
-    element: <MainPage />,
-  },
-  {
-    path: '/calendar',
-    element: <MainPage />,
-  },
-  {
-    path: '/shift',
-    element: <ShiftPage />
-  },
-  {
-    path: '/tasks',
-    element: <MainPage />,
-  },
-  {
-    path: '/collecting-sites',
-    element: <MainPage />,
-  },
-  {
-    path: '/staffs',
-    element: <MainPage />,
-  },
-  {
-    path: '/settings',
-    element: <MainPage />,
-  },
-  {
-    path: '/loggout',
-    element: <MainPage />,
-  },
+    {
+        path: '/',
+        element: <MainPage />,
+    },
+    {
+        path: '/user-info',
+        element: <MainPage />,
+    },
+    {
+        path: '/calendar',
+        element: <MainPage />,
+    },
+    {
+        path: '/shifts',
+        element: <ShiftPage />,
+    },
+    {
+        path: '/collecting-sites',
+        element: <MainPage />,
+    },
+    {
+        path: '/staffs',
+        element: <StaffPage />,
+    },
+    {
+        path: '/settings',
+        element: <MainPage />,
+    },
+    {
+        path: '/logout',
+        element: <MainPage />,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <Provider store={store}>
+            <RouterProvider router={router} />
+        </Provider>
+    </React.StrictMode>,
 );

@@ -1,7 +1,7 @@
 import App from '@components/App';
 import Sidebar from '@components/Sidebar';
 
-import "./MainPage.scss";
+import './MainPage.scss';
 
 const MainPage = () => {
   return (
