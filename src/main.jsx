@@ -27,8 +27,8 @@ const router = createBrowserRouter([
         element: <MainPage />,
     },
     {
-        path: '/shifts',
-        element: <ShiftPage />,
+        path: '/tasks',
+        element: <MainPage />,
     },
     {
         path: '/collecting-sites',
@@ -36,14 +36,14 @@ const router = createBrowserRouter([
     },
     {
         path: '/staffs',
-        element: <StaffPage />,
+        element: <MainPage />,
     },
     {
         path: '/settings',
         element: <MainPage />,
     },
     {
-        path: '/logout',
+        path: '/loggout',
         element: <MainPage />,
     },
 ]);
