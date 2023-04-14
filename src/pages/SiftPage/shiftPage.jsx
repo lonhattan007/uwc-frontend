@@ -1,13 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import { faCalendarDay, faCirclePlus, faFilter } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '@components/Sidebar/Sidebar';
 import styles from './shiftPage.module.scss';
-import DatePickerComponent from './datePicker';
+import DatePickerComponent from './utils/datePicker';
 import isValidDate from './utils/isValidDate';
+import ShiftTable from './utils/tableOfContent';
+import { shiftData } from '@mocks/shifts';
+import compareTwoDate from './utils/compare2Date';
 
 const cx = classNames.bind(styles);
 
@@ -16,16 +19,59 @@ function ShiftPage() {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const [isValidDateFlag, setIsValidDateFlag] = useState(false);
+    const [fillShiftData, setFillShiftData] = useState(shiftData);
+    const inputDateRef = useRef();
+    const containerDateRef = useRef();
+    const dateValue = useRef();
 
     const handleSelect = (event) => {
         // update selected option state
         setSelectedOption(event.target.value);
     };
 
+    useEffect(() => {
+        handleFilter();
+    }, [selectedDate, selectedOption]);
+
+    useEffect(() => {
+        let divElement = containerDateRef.current;
+        let inputElement = divElement.querySelector('input');
+
+        const handleFocus = () => {
+            console.log('focus in called');
+            if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
+                divElement.style.boxShadow = '0 0 0 2px rgba(1, 130, 65, 1)';
+            } else {
+                divElement.style.boxShadow = '0 0 0 2px rgba(220, 20, 60, 1)';
+            }
+        };
+
+        const handleFocusOut = () => {
+            console.log('focus out called');
+            if (inputElement.value === '') {
+                divElement.style.boxShadow = '0 0 0 1px rgba(111, 105, 105, 0.5)';
+            } else if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
+                divElement.style.boxShadow = '0 0 0 2px rgba(1, 130, 65, 1)';
+            } else {
+                divElement.style.boxShadow = '0 0 0 2px rgba(220, 20, 60, 1)';
+            }
+        };
+
+        divElement.addEventListener('focusin', handleFocus);
+        divElement.addEventListener('focusout', handleFocusOut);
+        inputElement.addEventListener('input', handleFocus);
+
+        return () => {
+            divElement.removeEventListener('focusin', handleFocus);
+            divElement.removeEventListener('focusout', handleFocus);
+            inputElement.addEventListener('input', handleFocus);
+        };
+    }, []);
+
     const options = [
-        { value: 'option1', label: 'Chưa diễn ra' },
-        { value: 'option2', label: 'Đang diễn ra' },
-        { value: 'option3', label: 'Đã kết thúc' },
+        { value: 'Chưa diễn ra', label: 'Chưa diễn ra' },
+        { value: 'Đang diễn ra', label: 'Đang diễn ra' },
+        { value: 'Đã kết thúc', label: 'Đã kết thúc' },
     ];
 
     const handleCalendarClick = () => {
@@ -37,14 +83,34 @@ function ShiftPage() {
             value = value.toLocaleDateString('en-GB');
         }
         if (isValidDate(value)) {
+            dateValue.current = value;
             setSelectedDate(value);
-            console.log('valid date');
             setIsValidDateFlag(true);
         } else {
+            dateValue.current = value;
             setSelectedDate(value);
-            console.log('Invalid date');
         }
         setShowDatePicker(false);
+    };
+
+    const handleFilter = () => {
+        const data = shiftData;
+        if ((selectedDate === null || selectedDate === '') && selectedOption === '') {
+            setFillShiftData(shiftData);
+        } else {
+            if (selectedDate === null || selectedDate === '') {
+                const filledData = data.filter((shift) => shift.status === selectedOption);
+                setFillShiftData(filledData);
+            } else if (selectedOption === '') {
+                const filledData = data.filter((shift) => compareTwoDate(selectedDate, shift.date));
+                setFillShiftData(filledData);
+            } else {
+                const filledData = data.filter(
+                    (shift) => compareTwoDate(selectedDate, shift.date) && shift.status === selectedOption,
+                );
+                setFillShiftData(filledData);
+            }
+        }
     };
 
     return (
@@ -71,17 +137,10 @@ function ShiftPage() {
                             </div>
                             <div className={cx('filter')}>
                                 <div className={cx('filter-option')}>
-                                    <div
-                                        className={cx('filter-input')}
-                                        style={{
-                                            boxShadow:
-                                                isValidDateFlag === true
-                                                    ? '0 0 0 2px #018241 !important'
-                                                    : '0 0 0 2px #FF0000 !important',
-                                        }}
-                                    >
+                                    <div className={cx('filter-input')} ref={containerDateRef}>
                                         <div className={cx('input-container')}>
                                             <input
+                                                ref={inputDateRef}
                                                 type="text"
                                                 placeholder="dd/mm/yyyy"
                                                 className={cx('date-input')}
@@ -112,9 +171,14 @@ function ShiftPage() {
                                     </div>
                                 </div>
                                 <div className={cx('filter-button')}>
-                                    <button className={cx('filter-btn')}>Filter</button>
+                                    {/* <button className={cx('filter-btn')} onClick={handleFilter}>
+                                        Filter
+                                    </button> */}
                                 </div>
                             </div>
+                        </div>
+                        <div className={cx('table-section')}>
+                            <ShiftTable shiftData={fillShiftData} />
                         </div>
                     </div>
                 </div>
