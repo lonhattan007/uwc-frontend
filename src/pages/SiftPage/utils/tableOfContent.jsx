@@ -49,12 +49,12 @@ function ShiftTable({ shiftData }) {
         setCheckedItems(checkedItems.map((item) => ({ ...item, checked: event.target.checked })));
     };
 
-    const handleEditClick = () => {
-        console.log('Edit clicked!');
+    const handleEditClick = (id) => {
+        console.log('Edit clicked at id: ' + id);
     };
 
-    const handleDeleteClick = () => {
-        console.log('Delete clicked!');
+    const handleDeleteClick = (id) => {
+        console.log('Delete clicked! at id' + id);
     };
 
     useEffect(() => {
@@ -68,7 +68,6 @@ function ShiftTable({ shiftData }) {
 
     useEffect(() => {
         const checkboxRef = allCheckBox.current;
-        console.log(checkedItems);
         if (checkedItems.filter((item) => item.checked === true).length === currentCount) {
             checkboxRef.checked = true;
         } else {
@@ -154,7 +153,10 @@ function ShiftTable({ shiftData }) {
                                     className={index === lastRowIndex ? cx('xxx') : ''}
                                     onClick={() => setShowDropdownMenu(!showDropdownMenu)}
                                 >
-                                    <DropdownMenu onEditClick={handleEditClick} onDeleteClick={handleDeleteClick} />
+                                    <DropdownMenu
+                                        onEditClick={() => handleEditClick(shift.id)}
+                                        onDeleteClick={() => handleDeleteClick(shift.id)}
+                                    />
                                 </td>
                             </tr>
                         ))
