@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Table, Pagination } from 'react-bootstrap';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from './table.module.scss';
 import { faChevronLeft, faChevronRight, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+import styles from './table.module.scss';
 import paginationRange from './pageRange';
+import DropdownMenu from './dropDownMenu';
 
 const cx = classNames.bind(styles);
 
@@ -12,6 +14,7 @@ function ShiftTable({ shiftData }) {
     const itemsPerPage = 5;
 
     const [activePage, setActivePage] = useState(1);
+    const [showDropdownMenu, setShowDropdownMenu] = useState(false);
     const allCheckBox = useRef();
 
     const indexOfLastItem = activePage * itemsPerPage;
@@ -46,9 +49,22 @@ function ShiftTable({ shiftData }) {
         setCheckedItems(checkedItems.map((item) => ({ ...item, checked: event.target.checked })));
     };
 
+    const handleEditClick = () => {
+        console.log('Edit clicked!');
+    };
+
+    const handleDeleteClick = () => {
+        console.log('Delete clicked!');
+    };
+
     useEffect(() => {
         setCheckedItems(initalCheckbox);
-    }, [activePage, shiftData]);
+    }, [activePage]);
+
+    useEffect(() => {
+        setCheckedItems(initalCheckbox);
+        setActivePage(1);
+    }, [shiftData]);
 
     useEffect(() => {
         const checkboxRef = allCheckBox.current;
@@ -134,8 +150,11 @@ function ShiftTable({ shiftData }) {
                                         <button className={cx('show-btn')}>Show</button>
                                     </div>
                                 </td>
-                                <td className={index === lastRowIndex ? cx('xxx') : ''}>
-                                    <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+                                <td
+                                    className={index === lastRowIndex ? cx('xxx') : ''}
+                                    onClick={() => setShowDropdownMenu(!showDropdownMenu)}
+                                >
+                                    <DropdownMenu onEditClick={handleEditClick} onDeleteClick={handleDeleteClick} />
                                 </td>
                             </tr>
                         ))
