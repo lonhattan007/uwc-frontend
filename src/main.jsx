@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import MainPage from '@pages/main/MainPage';
 import ShiftPage from '@pages/SiftPage/shiftPage';
-
+import StaffPage from '@pages/Staff/StaffPage';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <MainPage />,
     },
     {
-        path: '/tasks',
+        path: '/shifts',
         element: <MainPage />,
     },
     {
@@ -39,14 +39,14 @@ const router = createBrowserRouter([
     },
     {
         path: '/staffs',
-        element: <MainPage />,
+        element: <StaffPage />,
     },
     {
         path: '/settings',
         element: <MainPage />,
     },
     {
-        path: '/loggout',
+        path: '/logout',
         element: <MainPage />,
     },
 ]);
