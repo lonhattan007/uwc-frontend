@@ -8,7 +8,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { vehicleData } from '@mocks/vehicledata/vehicledata';
-import { Container, Row, Col } from 'react-bootstrap';
+// import { Container, Row, Col } from 'react-bootstrap';
 import './Taskassign1.scss';
 function VehicleList() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -138,7 +138,7 @@ function Driverlist() {
 }
 function Content() {
   return (
-    <div className="container-content">
+    <>
       <div className="header">
         <a href="">
           <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
@@ -147,32 +147,39 @@ function Content() {
           Quay lại
         </a>
       </div>
-      <div className="section-first">
-        <div className="circle-first">1</div>
-        <div className="line"></div>
-        <div className="circle-second">2</div>
+      <div className="container-content">
+        <div className="section-first">
+          <div className="circle-first">1</div>
+          <div className="line"></div>
+          <div className="circle-second">2</div>
+        </div>
+        <div className="text-section-first">
+          <p className="text-first">Phân công phương tiện và tài xế</p>
+          <p className="text-second">Phân công người thu gom</p>
+        </div>
+
+        <div className="section-second">
+          <VehicleList />
+          <Driverlist />
+        </div>
+        <Link to="/taskassign2">
+          <button className="button-1">Tiếp Theo</button>
+        </Link>
       </div>
-      <div className="text-section-first">
-        <p className="text-first">Phân công phương tiện và tài xế</p>
-        <p className="text-second">Phân công người thu gom</p>
-      </div>
-      <div className="section-second">
-        <VehicleList />
-        <Driverlist />
-      </div>
-      <Link to="/taskassign2">
-        <button className="button-1">Tiếp Theo</button>
-      </Link>
-    </div>
+    </>
   );
 }
 
 function Taskassign1() {
   return (
     <>
-      <Sidebar />
       <div id="workspace">
-        <Content />
+        <div id="workspace-1">
+          <Sidebar />
+        </div>
+        <div id="workspace-2">
+          <Content />
+        </div>
       </div>
     </>
   );

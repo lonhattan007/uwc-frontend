@@ -75,7 +75,7 @@ function Content() {
     alert('Completed!!!');
   };
   return (
-    <div className="container-content">
+    <>
       <div className="header">
         <Link to="/taskassign1">
           <a href="">
@@ -86,110 +86,117 @@ function Content() {
           </a>
         </Link>
       </div>
-      <div className="section-first">
-        <div className="circle2-first">
-          <FontAwesomeIcon className="icon-first" icon={faCheck} />
+      <div className="container-content">
+        <div className="section-first">
+          <div className="circle2-first">
+            <FontAwesomeIcon className="icon-first" icon={faCheck} />
+          </div>
+          <div className="line"></div>
+          <div className="circle-second">2</div>
         </div>
-        <div className="line"></div>
-        <div className="circle-second">2</div>
+        <div className="text-section-first">
+          <p className="text-first">Phân công phương tiện và tài xế</p>
+          <p className="text-second">Phân công người thu gom</p>
+        </div>
+
+        <div className="section-second-assign">
+          <table className="table-wrapper">
+            <tr>
+              <th className="row1">Địa điểm</th>
+              <th className="collum2">Nhóm trưởng</th>
+              <th className="collum3">Thành viên</th>
+            </tr>
+            <tr>
+              <td>167 Phạm Hữu Lầu Phường Mỹ Phước Quận 7 TP. HCM</td>
+              <td>
+                <Select
+                  className="select-assign2"
+                  options={options}
+                  value={selectedOption}
+                  onChange={handleChange}
+                  styles={customStyles}
+                  placeholder="Tên nhóm trưởng"
+                />
+              </td>
+              <td>
+                <Select
+                  isMulti
+                  className="select-assign2"
+                  options={options2}
+                  value={selectedOption2}
+                  onChange={handleChange2}
+                  styles={customStyles2}
+                  placeholder="Tên thành viên"
+                />
+              </td>
+            </tr>
+            <tr className="row-2">
+              <td>205 Võ Văn Ngân Phường Linh Chiểu Quận TĐ TP. HCM</td>
+              <td>
+                <Select
+                  className="select-assign2"
+                  options={options}
+                  value={selectedOption}
+                  onChange={handleChange}
+                  styles={customStyles}
+                  placeholder="Tên nhóm trưởng"
+                />
+              </td>
+              <td>
+                <Select
+                  isMulti
+                  className="select-assign2"
+                  options={options2}
+                  value={selectedOption2}
+                  onChange={handleChange2}
+                  styles={customStyles2}
+                  placeholder="Tên thành viên"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>397 Lý Thường Kiệt Phường 8 Quận Tân Bình TP. HCM</td>
+              <td>
+                <Select
+                  className="select-assign2"
+                  options={options}
+                  value={selectedOption}
+                  onChange={handleChange}
+                  styles={customStyles}
+                  placeholder="Tên nhóm trưởng"
+                />
+              </td>
+              <td>
+                <Select
+                  isMulti
+                  className="select-assign2"
+                  options={options2}
+                  value={selectedOption2}
+                  onChange={handleChange2}
+                  styles={customStyles2}
+                  placeholder="Tên thành viên"
+                />
+              </td>
+            </tr>
+          </table>
+        </div>
+        <button className="button-2" onClick={handleButtonClick}>
+          Lưu
+        </button>
       </div>
-      <div className="text-section-first">
-        <p className="text-first">Phân công phương tiện và tài xế</p>
-        <p className="text-second">Phân công người thu gom</p>
-      </div>
-      <div className="section-second-assign">
-        <table className="table-wrapper">
-          <tr>
-            <th className="row1">Địa điểm</th>
-            <th className="collum2">Nhóm trưởng</th>
-            <th className="collum3">Thành viên</th>
-          </tr>
-          <tr>
-            <td>167 Phạm Hữu Lầu Phường Mỹ Phước Quận 7 TP. HCM</td>
-            <td>
-              <Select
-                className="select-assign2"
-                options={options}
-                value={selectedOption}
-                onChange={handleChange}
-                styles={customStyles}
-                placeholder="Tên nhóm trưởng"
-              />
-            </td>
-            <td>
-              <Select
-                isMulti
-                className="select-assign2"
-                options={options2}
-                value={selectedOption2}
-                onChange={handleChange2}
-                styles={customStyles2}
-                placeholder="Tên thành viên"
-              />
-            </td>
-          </tr>
-          <tr className="row-2">
-            <td>205 Võ Văn Ngân Phường Linh Chiểu Quận TĐ TP. HCM</td>
-            <td>
-              <Select
-                className="select-assign2"
-                options={options}
-                value={selectedOption}
-                onChange={handleChange}
-                styles={customStyles}
-                placeholder="Tên nhóm trưởng"
-              />
-            </td>
-            <td>
-              <Select
-                isMulti
-                className="select-assign2"
-                options={options2}
-                value={selectedOption2}
-                onChange={handleChange2}
-                styles={customStyles2}
-                placeholder="Tên thành viên"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>397 Lý Thường Kiệt Phường 8 Quận Tân Bình TP. HCM</td>
-            <td>
-              <Select
-                className="select-assign2"
-                options={options}
-                value={selectedOption}
-                onChange={handleChange}
-                styles={customStyles}
-                placeholder="Tên nhóm trưởng"
-              />
-            </td>
-            <td>
-              <Select
-                isMulti
-                className="select-assign2"
-                options={options2}
-                value={selectedOption2}
-                onChange={handleChange2}
-                styles={customStyles2}
-                placeholder="Tên thành viên"
-              />
-            </td>
-          </tr>
-        </table>
-      </div>
-      <button className="button-2" onClick={handleButtonClick}>
-        Lưu
-      </button>
-    </div>
+    </>
   );
 }
 function Taskassign2() {
   return (
     <>
-      <Sidebar />
       <div id="workspace">
-        <Content />
+        <div id="workspace-1">
+          <Sidebar />
+        </div>
+        <div id="workspace-2">
+          <Content />
+        </div>
       </div>
     </>
   );
