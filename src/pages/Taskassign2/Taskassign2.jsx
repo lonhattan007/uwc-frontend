@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
-import './Taskassign2.scss';
+import '../Taskassign1/Taskassign1.scss';
 import { Link } from 'react-router-dom';
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { janiorData } from '@mocks/vehicledata/janiordata';
@@ -87,7 +87,7 @@ function Content() {
         </Link>
       </div>
       <div className="section-first">
-        <div className="circle-first">
+        <div className="circle2-first">
           <FontAwesomeIcon className="icon-first" icon={faCheck} />
         </div>
         <div className="line"></div>
@@ -101,8 +101,8 @@ function Content() {
         <table className="table-wrapper">
           <tr>
             <th className="row1">Địa điểm</th>
-            <th className="col2">Nhóm trưởng</th>
-            <th className="col3">Thành viên</th>
+            <th className="collum2">Nhóm trưởng</th>
+            <th className="collum3">Thành viên</th>
           </tr>
           <tr>
             <td>167 Phạm Hữu Lầu Phường Mỹ Phước Quận 7 TP. HCM</td>

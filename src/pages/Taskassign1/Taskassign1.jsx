@@ -8,6 +8,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { vehicleData } from '@mocks/vehicledata/vehicledata';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Taskassign1.scss';
 function VehicleList() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -165,15 +166,9 @@ function Content() {
     </div>
   );
 }
+
 function Taskassign1() {
   return (
-    // <Container fluid>
-    //   <Row>
-    //     <Col>
-    //       <Content />
-    //     </Col>
-    //   </Row>
-    // </Container>
     <>
       <Sidebar />
       <div id="workspace">
