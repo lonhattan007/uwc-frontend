@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-
 import 'react-datepicker/dist/react-datepicker.css';
 
 function DatePickerComponent({ onSelectDate }) {
@@ -16,6 +13,7 @@ function DatePickerComponent({ onSelectDate }) {
     return (
         <div className="position-absolute" style={{ zIndex: 999 }}>
             <DatePicker
+                calendarClassName="custom-calendar"
                 inline
                 selected={null}
                 onChange={handleSelect}

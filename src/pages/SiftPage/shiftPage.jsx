@@ -11,18 +11,25 @@ import isValidDate from './utils/isValidDate';
 import ShiftTable from './utils/tableOfContent';
 import { shiftData } from '@mocks/shifts';
 import compareTwoDate from './utils/compare2Date';
+import isDateInRange from './utils/rangeDateChecking';
+import getCurrentDate from './utils/getCurrentDate';
 
 const cx = classNames.bind(styles);
 
 function ShiftPage() {
     const [selectedOption, setSelectedOption] = useState(''); // state for selected option
     const [showDatePicker, setShowDatePicker] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [isValidDateFlag, setIsValidDateFlag] = useState(false);
+    const [showDatePicker1, setShowDatePicker1] = useState(false);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedDate1, setSelectedDate1] = useState('');
     const [fillShiftData, setFillShiftData] = useState(shiftData);
     const inputDateRef = useRef();
     const containerDateRef = useRef();
-    const dateValue = useRef();
+    const containerDateRef1 = useRef();
+    const dateValue = useRef('');
+    const dateValue1 = useRef('');
+    const lableFromDateRef = useRef(null);
+    const lableToDateRef = useRef(null);
 
     const handleSelect = (event) => {
         // update selected option state
@@ -31,29 +38,35 @@ function ShiftPage() {
 
     useEffect(() => {
         handleFilter();
-    }, [selectedDate, selectedOption]);
+    }, [dateValue.current, dateValue1.current, selectedOption]);
 
     useEffect(() => {
         let divElement = containerDateRef.current;
         let inputElement = divElement.querySelector('input');
+        let lableRef = lableFromDateRef.current;
+        const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
+        const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
 
         const handleFocus = () => {
-            console.log('focus in called');
-            if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
-                divElement.style.boxShadow = '0 0 0 2px rgba(1, 130, 65, 1)';
+            if (isValidDate(inputElement.value)) {
+                lableRef.style.color = 'rgba(1, 130, 65, 1)';
+                divElement.style.boxShadow = validColor;
             } else {
-                divElement.style.boxShadow = '0 0 0 2px rgba(220, 20, 60, 1)';
+                lableRef.style.color = 'rgba(220, 20, 60, 1)';
+                divElement.style.boxShadow = invalidColor;
             }
         };
 
         const handleFocusOut = () => {
-            console.log('focus out called');
-            if (inputElement.value === '') {
+            if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
+                divElement.style.boxShadow = validColor;
+                lableRef.style.color = 'rgba(1, 130, 65, 1)';
+            } else if (inputElement.value === '') {
                 divElement.style.boxShadow = '0 0 0 1px rgba(111, 105, 105, 0.5)';
-            } else if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
-                divElement.style.boxShadow = '0 0 0 2px rgba(1, 130, 65, 1)';
+                lableRef.style.color = 'rgba(111, 105, 105, 0.5)';
             } else {
-                divElement.style.boxShadow = '0 0 0 2px rgba(220, 20, 60, 1)';
+                divElement.style.boxShadow = invalidColor;
+                lableRef.style.color = 'rgba(220, 20, 60, 1)';
             }
         };
 
@@ -68,6 +81,47 @@ function ShiftPage() {
         };
     }, []);
 
+    useEffect(() => {
+        let divElement1 = containerDateRef1.current;
+        let inputElement1 = divElement1.querySelector('input');
+        const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
+        const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
+        const labelRef1 = lableToDateRef.current;
+
+        const handleFocus1 = () => {
+            if (isValidDate(inputElement1.value)) {
+                divElement1.style.boxShadow = validColor;
+                labelRef1.style.color = 'rgba(1, 130, 65, 1)';
+            } else {
+                divElement1.style.boxShadow = invalidColor;
+                labelRef1.style.color = 'rgba(220, 20, 60, 1';
+            }
+        };
+
+        const handleFocusOut1 = () => {
+            if (isValidDate(inputElement1.value) || isValidDate(dateValue1.current)) {
+                divElement1.style.boxShadow = validColor;
+                labelRef1.style.color = 'rgba(1, 130, 65, 1)';
+            } else if (inputElement1.value === '') {
+                divElement1.style.boxShadow = '0 0 0 1px rgba(111, 105, 105, 0.5)';
+                labelRef1.style.color = 'rgba(111, 105, 105, 0.5)';
+            } else {
+                divElement1.style.boxShadow = invalidColor;
+                labelRef1.style.color = 'rgba(220, 20, 60, 1';
+            }
+        };
+
+        divElement1.addEventListener('focusin', handleFocus1);
+        divElement1.addEventListener('focusout', handleFocusOut1);
+        inputElement1.addEventListener('input', handleFocus1);
+
+        return () => {
+            divElement1.removeEventListener('focusin', handleFocus1);
+            divElement1.removeEventListener('focusout', handleFocus1);
+            inputElement1.addEventListener('input', handleFocus1);
+        };
+    }, []);
+
     const options = [
         { value: 'Chưa diễn ra', label: 'Chưa diễn ra' },
         { value: 'Đang diễn ra', label: 'Đang diễn ra' },
@@ -78,6 +132,10 @@ function ShiftPage() {
         setShowDatePicker(!showDatePicker);
     };
 
+    const handleCalendarClick1 = () => {
+        setShowDatePicker1(!showDatePicker1);
+    };
+
     const handleDateChange = (value) => {
         if (typeof value === 'object') {
             value = value.toLocaleDateString('en-GB');
@@ -85,30 +143,47 @@ function ShiftPage() {
         if (isValidDate(value)) {
             dateValue.current = value;
             setSelectedDate(value);
-            setIsValidDateFlag(true);
         } else {
-            dateValue.current = value;
+            dateValue.current = '';
             setSelectedDate(value);
         }
         setShowDatePicker(false);
     };
 
+    const handleDateChange1 = (value) => {
+        if (typeof value === 'object') {
+            value = value.toLocaleDateString('en-GB');
+        }
+        if (isValidDate(value)) {
+            dateValue1.current = value;
+            setSelectedDate1(value);
+        } else {
+            dateValue1.current = '';
+            setSelectedDate1(value);
+        }
+        setShowDatePicker1(false);
+    };
+
     const handleFilter = () => {
         const data = shiftData;
-        if ((selectedDate === null || selectedDate === '') && selectedOption === '') {
-            setFillShiftData(shiftData);
+
+        if (dateValue.current === '' && dateValue1.current === '' && selectedOption === '') {
+            setFillShiftData(data);
+        } else if (dateValue.current === '' && dateValue1.current === '') {
+            const filteredData = data.filter((shift) => shift.status === selectedOption);
+            setFillShiftData(filteredData);
         } else {
-            if (selectedDate === null || selectedDate === '') {
-                const filledData = data.filter((shift) => shift.status === selectedOption);
-                setFillShiftData(filledData);
-            } else if (selectedOption === '') {
-                const filledData = data.filter((shift) => compareTwoDate(selectedDate, shift.date));
-                setFillShiftData(filledData);
+            const fromDate = dateValue.current === '' ? getCurrentDate() : dateValue.current;
+            const toDate = dateValue1.current === '' ? getCurrentDate() : dateValue1.current;
+
+            if (selectedOption === '') {
+                const filteredData = data.filter((shift) => isDateInRange(shift.date, fromDate, toDate));
+                setFillShiftData(filteredData);
             } else {
-                const filledData = data.filter(
-                    (shift) => compareTwoDate(selectedDate, shift.date) && shift.status === selectedOption,
+                const filteredData = data.filter(
+                    (shift) => isDateInRange(shift.date, fromDate, toDate) && shift.status === selectedOption,
                 );
-                setFillShiftData(filledData);
+                setFillShiftData(filteredData);
             }
         }
     };
@@ -139,10 +214,14 @@ function ShiftPage() {
                                 <div className={cx('filter-option')}>
                                     <div className={cx('filter-input')} ref={containerDateRef}>
                                         <div className={cx('input-container')}>
+                                            <label htmlFor="fromDate" ref={lableFromDateRef}>
+                                                From
+                                            </label>
                                             <input
+                                                id="fromDate"
                                                 ref={inputDateRef}
                                                 type="text"
-                                                placeholder="dd/mm/yyyy"
+                                                placeholder={getCurrentDate()}
                                                 className={cx('date-input')}
                                                 value={selectedDate ? selectedDate : ''}
                                                 onChange={(e) => handleDateChange(e.target.value)}
@@ -153,6 +232,28 @@ function ShiftPage() {
                                         </div>
                                         {showDatePicker && <DatePickerComponent onSelectDate={handleDateChange} />}
                                     </div>
+                                    <div className={cx('filter-input')} ref={containerDateRef1}>
+                                        <div className={cx('input-container')}>
+                                            <label htmlFor="toDate" ref={lableToDateRef}>
+                                                To
+                                            </label>
+                                            <input
+                                                id="toDate"
+                                                ref={inputDateRef}
+                                                type="text"
+                                                placeholder={getCurrentDate()}
+                                                className={cx('date-input')}
+                                                value={selectedDate1 ? selectedDate1 : ''}
+                                                onChange={(e) => handleDateChange1(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className={cx('icon-container')} onClick={handleCalendarClick1}>
+                                            <FontAwesomeIcon icon={faCalendarDay} />
+                                        </div>
+                                        {showDatePicker1 && <DatePickerComponent onSelectDate={handleDateChange1} />}
+                                    </div>
+                                </div>
+                                <div className={cx('filter-second-date')}>
                                     <div className={cx('filter-input')}>
                                         <Form className={cx('status-input')}>
                                             <Form.Select
@@ -169,11 +270,6 @@ function ShiftPage() {
                                             </Form.Select>
                                         </Form>
                                     </div>
-                                </div>
-                                <div className={cx('filter-button')}>
-                                    {/* <button className={cx('filter-btn')} onClick={handleFilter}>
-                                        Filter
-                                    </button> */}
                                 </div>
                             </div>
                         </div>
