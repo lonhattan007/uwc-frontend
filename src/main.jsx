@@ -12,6 +12,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
 import StaffPage from '@pages/Staff/StaffPage';
+import Taskassign1 from '@pages/Taskassign1/Taskassign1';
+import Taskassign2 from '@pages/Taskassign2/Taskassign2';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
     element: <StaffPage />,
   },
   {
+    path: '/taskassign1',
+    element: <Taskassign1 />,
+  },
+  {
+    path: '/taskassign2',
+    element: <Taskassign2 />,
+  },
+  {
     path: '/settings',
     element: <MainPage />,
   },
@@ -49,7 +59,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}> 
+    <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
