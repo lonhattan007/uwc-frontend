@@ -12,6 +12,8 @@ import { BrowserRouter } from 'react-router-dom';
 import MainPage from '@pages/main/MainPage';
 import ShiftPage from '@pages/ShiftPage/shiftPage';
 import StaffPage from '@pages/Staff/StaffPage';
+import Taskassign1 from '@pages/Taskassign1/Taskassign1';
+import Taskassign2 from '@pages/Taskassign2/Taskassign2';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: '/staffs',
     element: <StaffPage />,
+  },
+  {
+    path: '/taskassign1',
+    element: <Taskassign1 />,
+  },
+  {
+    path: '/taskassign2',
+    element: <Taskassign2 />,
   },
   {
     path: '/settings',
