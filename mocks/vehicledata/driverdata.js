@@ -8,11 +8,6 @@ import goat from './image/goat.png';
 
 export const driverData = [
   {
-    value: 'Nguyễn Tuấn Anh',
-    label: 'Nguyễn Tuấn Anh',
-    image: monkey,
-  },
-  {
     value: 'Lò Nhật Tân',
     label: 'Lò Nhật Tân',
     image: dragon,
@@ -22,7 +17,11 @@ export const driverData = [
     label: 'Đinh Tiến Khởi',
     image: horse,
   },
-
+  {
+    value: 'Nguyễn Tuấn Anh',
+    label: 'Nguyễn Tuấn Anh',
+    image: monkey,
+  },
   {
     value: 'Nguyễn Mạnh Thuyên',
     label: 'Nguyễn Mạnh Thuyên',
