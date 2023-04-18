@@ -13,6 +13,7 @@ import { shiftData } from '@mocks/shifts';
 import compareTwoDate from './utils/compare2Date';
 import isDateInRange from './utils/rangeDateChecking';
 import getCurrentDate from './utils/getCurrentDate';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -30,6 +31,8 @@ function ShiftPage() {
   const dateValue1 = useRef('');
   const lableFromDateRef = useRef(null);
   const lableToDateRef = useRef(null);
+  const [showNewShiftModal, setShowNewShiftModal] = useState(false);
+
 
   const handleSelect = (event) => {
     // update selected option state
@@ -188,6 +191,14 @@ function ShiftPage() {
     }
   };
 
+  const handleNewShiftClick = () => {
+    setShowNewShiftModal(true);
+  };
+  const handleCancel = () => {
+    setShowNewShiftModal(false);
+  }
+
+
   return (
     <>
       <Sidebar />
@@ -195,10 +206,53 @@ function ShiftPage() {
         <div className={cx('header')}>
           <div className={cx('inner')}>
             <h1 className={cx('title')}>Danh sách ca</h1>
-            <button className={cx('new-shift-button')}>
+            <button className={cx('new-shift-button')} onClick={handleNewShiftClick}>
               <FontAwesomeIcon icon={faCirclePlus} />
               Tạo ca mới
             </button>
+            {showNewShiftModal && (
+              <div className={cx('new-shift-modal')} >
+                <div className={cx('modal-inner')}>
+                  <div className={cx('modal-header')}>
+                    <h2 className={cx('modal-title')}>Tạo ca mới</h2>
+                    <button
+                      className={cx('close-button')}
+                      onClick={() => setShowNewShiftModal(false)}
+                    >
+                      <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                  </div>
+                  <div className={cx('modal-body')}>
+                    <div className={cx('input-group')}>
+                      <label htmlFor="start-time-input">Giờ bắt đầu:</label>
+                      <input type="time" id="start-time-input" />
+                    </div>
+                    <div className={cx('input-group')}>
+                      <label htmlFor="end-time-input">Giờ kết thúc:</label>
+                      <input type="time" id="end-time-input" />
+                    </div>
+                    <div className={cx('input-group')}>
+                      <label htmlFor="status-input">Trạng thái:</label>
+                      <select id="status-input">
+                        <option value="available">Chưa diễn ra</option>
+                        <option value="unavailable">Đã diễn ra</option>
+                        <option value="unavailable">Kết thúc</option>
+                      </select>
+                    </div>
+                    <div className={cx('input-group')}>
+                      <label htmlFor="date-input">Ngày:</label>
+                      <input type="date" id="date-input" />
+                    </div>
+                  </div>
+                  <div className={cx('modal-footer')}>
+                    <button className={cx('cancel-button')} onClick={handleCancel}>Hủy bỏ</button>
+
+                    <button className={cx('confirm-button')} onClick={handleCancel}>Xác nhận</button>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
         <div className={cx('content')}>
