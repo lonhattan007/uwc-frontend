@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import reactLogo from '@assets/react.svg';
 import './App.scss';
-import TaskListView from '@components/TaskListView/TaskListView';
-import TaskView from '@components/TaskView/TaskView';
-import CalendarView from '@components/CalendarView/CalendarView';
+// import TaskListView from '@components/TaskListView/TaskListView';
+// import TaskView from '@components/TaskView/TaskView';
+// import CalendarView from '@components/CalendarView/CalendarView';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -33,7 +33,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       
-      <CalendarView />
+      {/* <CalendarView /> */}
     </div>
   );
 }

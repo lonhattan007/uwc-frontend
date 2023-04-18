@@ -11,8 +11,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
+import TaskListView from '@pages/TaskListView/TaskListView';
 import CalendarView from '@pages/CalendarView/CalendarView';
-
+import TaskView from '@pages/TaskView/TaskView';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: '/calendar',
     element: <CalendarView />,
+  },
+  {
+    path: '/task-list-view',
+    element: <TaskListView />,
+  },
+  {
+    path: '/task-view',
+    element: <TaskView />,
   },
   {
     path: '/shifts',

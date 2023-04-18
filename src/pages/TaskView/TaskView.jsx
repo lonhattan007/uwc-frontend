@@ -1,3 +1,4 @@
+import Sidebar from "@components/Sidebar/Sidebar";
 import React from "react";
 import { FaArrowLeft, FaUser, FaTelegram, FaClock, FaCar  } from "react-icons/fa";
 function TaskView_Info_Left(props) {
@@ -233,10 +234,14 @@ function TaskView() {
         height: "100vh"
     }
     return (
-        <div style={TaskView}>
-            <TaskView_Info />
-            <TaskView_Table />
-        </div>
+        <>
+            <Sidebar />
+            <div style={TaskView}>
+                <TaskView_Info />
+                <TaskView_Table />
+            </div>
+        </>
+        
     );
 }
 export default TaskView;

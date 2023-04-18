@@ -70,15 +70,9 @@ function ContentCalendarView() {
 }
 function CalendarView() {
     return (
-        <div>
-            <div id="workspace">
-                <div id="workspace-1">
-                    <Sidebar />
-                </div>
-                <div id="workspace-2">
-                    <ContentCalendarView />
-                </div>
-            </div>
+        <div style={{width: "100%", display: "flex"}}>
+            <Sidebar />
+            <ContentCalendarView />
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import Sidebar from '@components/Sidebar/Sidebar';
 import React from 'react';
 
 import { FaPlus, FaArrowLeft, FaCalendar, FaClock, FaCheck,   FaEllipsisV  } from 'react-icons/fa';
@@ -323,11 +324,15 @@ function TaskListView() {
 
   }
   return (
-    <div style={TaskListView}>
-      <TaskListView_Header />
-      <TaskListView_Content />
-      <TaskListView_Table  />
+    <>
+      <Sidebar />
+      <div style={TaskListView}>
+        <TaskListView_Header />
+        <TaskListView_Content />
+        <TaskListView_Table  />
     </div>
+    </>
+    
   );
 }
 
