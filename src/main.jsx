@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
+import CalendarView from '@pages/CalendarView/CalendarView';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/calendar',
-    element: <MainPage />,
+    element: <CalendarView />,
   },
   {
     path: '/shifts',

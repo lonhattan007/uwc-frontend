@@ -4,8 +4,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import React, { useRef, useState, forwardRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import './CalendarView.css';
-function CalendarView() {
+import './CalendarView.scss';
+import Sidebar from '@components/Sidebar';
+
+function ContentCalendarView() {
     const [showForm, setShowForm] = useState(false);
     const [selectedDate, setSelectedDate] = useState(null);
     const noteRef = useRef(null);
@@ -34,21 +36,6 @@ function CalendarView() {
         ref={calendarRef}
         plugins={[dayGridPlugin]}
         select={handleSelect}
-        // dayCellContent={({ date }) => (
-        //     <div className="day-cell">
-        //     <div className="day-number">{date.getDate()}</div>
-        //     <div className="backgr-icon">
-        //         <div className="leftcontent">
-        //         <div className="day-cell">
-        //         </div>
-        //         </div>
-                
-        //         <div className="add-icon" onClick={() => setSelectedDate(date)}>
-        //         <FontAwesomeIcon icon={faPlus} />
-        //         </div>
-        //     </div>
-        //     </div>
-        // )}
         dayCellContent={({ date }) => (
             <div className="day-cell">
                 <div className="day-number">{date.getDate()}</div>
@@ -81,5 +68,18 @@ function CalendarView() {
     </div>
     );
 }
-
+function CalendarView() {
+    return (
+        <div>
+            <div id="workspace">
+                <div id="workspace-1">
+                    <Sidebar />
+                </div>
+                <div id="workspace-2">
+                    <ContentCalendarView />
+                </div>
+            </div>
+        </div>
+    );
+}
 export default CalendarView;

@@ -101,7 +101,7 @@ function TaskView_Info_Right() {
         flexDirection: "column",
         padding: "1rem"
     }
-    const img = {
+    const image = {
         width: "50%",
         margin: "2rem auto"
     }
@@ -115,11 +115,12 @@ function TaskView_Info_Right() {
     }
     return (
         <div style={TaskView_Info_Right}>
-            <img src="https://images.sftcdn.net/images/t_app-icon-s/p/9d68dc94-f2f0-4ed8-9997-feb4813a38b2/4289966562/google-maps-go-logo" style={img}/>
-            
+            {/* <img src="../../assets/MapRoute.jpg" style={img}/> */}
+            <img src="https://cdn.tgdd.vn/GameApp/3/222424/Screentshots/google-maps-go-ban-do-tim-duong-cho-may-cau-hinh-yeu-222424-logo-13-05-2020.png" alt="Map Route" style={image} />
+
             <div><a href="#" style={btn}>Tuyến đường</a></div>
         </div>
-    );
+    ); 
 }
 function TaskView_Info() {
     const TaskView_Info = {

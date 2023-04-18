@@ -1,0 +1,95 @@
+.calendar {
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+  // display: flex;
+}
+
+.fc {
+  height: 90%;
+}
+.fc-daygrid-day-number {
+  width: 100%;
+}
+.day-cell {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+  height: 100%;
+  align-items: center;
+  color: #666;
+}
+
+/* .fc-scrollgrid-sync-inner {
+    height: 40px;
+  } */
+.fc-col-header-cell-cushion {
+  font-size: 20px;
+  line-height: 200%;
+  font-weight: bold;
+  color: #666;
+}
+.fc-col-header-cell-cushion a {
+  text-decoration: none;
+}
+/* .fc-button-group {
+    position: relative;
+    top: 700px;
+    right: 50px;
+  } */
+.fc-toolbar-chunk {
+  position: relative;
+  top: 15px;
+}
+.form-container {
+  display: block;
+}
+.backgr-icon {
+  /* margin-top: 5px; */
+  text-align: right;
+  width: 50%;
+  display: flex;
+}
+.leftcontent {
+  width: 80%;
+}
+.add-icon {
+  /* text-align: right; */
+  border-radius: 50%;
+  width: 25px;
+  height: 22px;
+  background-color: #15f901;
+  text-align: center;
+  line-height: 130%;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  cursor: pointer;
+}
+.day-number {
+  /* margin-bottom: 5px; */
+  width: 50%;
+  text-align: left;
+  font-size: 18px;
+  text-decoration: none;
+}
+.day-cell {
+  position: relative;
+}
+
+.note {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  white-space: pre-wrap;
+}

@@ -5,7 +5,7 @@ function TaskListView_Header() {
   const TaskListView_Header = {
     display: 'flex',
     margin: '0rem 2rem',
-    width: '100vw',
+    width: '100%',
   };
   const h2 = {
     margin: "1rem",
@@ -14,7 +14,7 @@ function TaskListView_Header() {
     height: '3rem',
     margin: "1rem",
     lineHeight: '1.5rem',
-    width: '15%',
+    width: '20%',
     borderRadius: '30rem',
     marginLeft: '2.5rem',
     backgroundColor: '#018241',
@@ -130,7 +130,7 @@ function TaskListView_Content_Right(props) {
   const TaskListView_Content_Right = {
     backgroundColor: "#fff",
     margin: "0 2rem",
-    width: "30%",
+    width: "40%",
     padding: "0.5rem 1rem",
     borderRadius: "25px",
   }
@@ -191,9 +191,9 @@ function TaskListView_Content_Right(props) {
 }
 function TaskListView_Content() {
   const taskListView_Content = {
-    // width: "100%",
+    width: "100%",
     display: "flex",
-    // justifyContent: "space-around",
+    justifyContent: "space-around",
     margin: "auto",
     fontSize: "20px",
   }
@@ -226,7 +226,8 @@ function TaskListView_Table () {
   const rowHead = {
     height: "7rem",
     backgroundColor: '#018241',
-    color: "#fff"
+    color: "#fff",
+    width: "100%",
 
   }
   const row = {
@@ -240,7 +241,7 @@ function TaskListView_Table () {
 
   }
   const cell = {
-    width: '14rem'
+    width: '14%'
   }
   const buttonShow = {
     textDecoration: "none",
@@ -249,12 +250,18 @@ function TaskListView_Table () {
     padding: "1rem 2rem",
     borderRadius: "30px"
   }
+  const table = {
+    width: '100%'
+  }
+  const thead = {
+    width: '100%'
+  }
   return (
     
     <div style={TaskListView_Table}>
       
-      <table>
-          <thead>
+      <table style={table}>
+          <thead style={thead}>
             <tr style={rowHead}>
               <th style={cell}>Mã nhiệm vụ</th>
               <th style={cell}>Trạng thái</th>
@@ -310,14 +317,13 @@ function TaskListView_Table () {
 }
 function TaskListView() {
   const TaskListView = {
-    maxWidth: "86vw",
-    // width: "100rem",
+    width: "100%",
     backgroundColor: "#f2f2f2",
     height: "100vh",
-    overflow: "hidden"
+
   }
   return (
-    <div style={TaskListView} className='TaskListView'>
+    <div style={TaskListView}>
       <TaskListView_Header />
       <TaskListView_Content />
       <TaskListView_Table  />
