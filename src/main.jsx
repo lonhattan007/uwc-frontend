@@ -9,19 +9,28 @@ import store from './store/store';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-
 import MainPage from '@pages/main/MainPage';
+import ShiftPage from '@pages/ShiftPage/shiftPage';
+import StaffPage from '@pages/Staff/StaffPage';
+import Taskassign1 from '@pages/Taskassign1/Taskassign1';
+import Taskassign2 from '@pages/Taskassign2/Taskassign2';
+import Login from '@pages/Login/Login';
+import ForgotPass from '@pages/ForgotPass/ForgotPass';
 import TaskListView from '@pages/TaskListView/TaskListView';
 import CalendarView from '@pages/CalendarView/CalendarView';
 import TaskView from '@pages/TaskView/TaskView';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainPage />,
+    element: <Login />,
   },
   {
     path: '/user-info',
     element: <MainPage />,
+  },
+  {
+    path: '/shifts',
+    element: <ShiftPage />,
   },
   {
     path: '/calendar',
@@ -45,7 +54,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/staffs',
-    element: <MainPage />,
+    element: <StaffPage />,
+  },
+  {
+    path: '/taskassign1',
+    element: <Taskassign1 />,
+  },
+  {
+    path: '/taskassign2',
+    element: <Taskassign2 />,
   },
   {
     path: '/settings',
@@ -53,7 +70,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/logout',
-    element: <MainPage />,
+    element: <Login />,
   },
 ]);
 
