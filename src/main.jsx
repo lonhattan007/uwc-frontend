@@ -16,7 +16,9 @@ import Taskassign1 from '@pages/Taskassign1/Taskassign1';
 import Taskassign2 from '@pages/Taskassign2/Taskassign2';
 import Login from '@pages/Login/Login';
 import ForgotPass from '@pages/ForgotPass/ForgotPass';
-
+import TaskListView from '@pages/TaskListView/TaskListView';
+import CalendarView from '@pages/CalendarView/CalendarView';
+import TaskView from '@pages/TaskView/TaskView';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -32,7 +34,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/calendar',
-    element: <MainPage />,
+    element: <CalendarView />,
+  },
+  {
+    path: '/task-list-view',
+    element: <TaskListView />,
+  },
+  {
+    path: '/task-view',
+    element: <TaskView />,
   },
   {
     path: '/shifts',
