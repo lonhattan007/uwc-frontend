@@ -1,59 +1,59 @@
 $color_1: #000000;
 $color_2: rgb(0, 0, 0);
 $background-color_1: rgb(4, 155, 4);
-$background-color_2: #B2FFDA;
+$background-color_2: #b2ffda;
 
 .info {
-	height: 20%;
-	font-size: 1rem;
-	>div {
-		display: flex;
-		justify-content: space-between;
-		margin: 0.5rem 0;
-		>div {
-			>span {
-				font-weight: bold;
-			}
-		}
-	}
-	>span {
-		font-weight: bold;
-	}
+  height: 20%;
+  font-size: 1rem;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    > div {
+      > span {
+        font-weight: bold;
+      }
+    }
+  }
+  > span {
+    font-weight: bold;
+  }
 }
 .table {
-	border-collapse: collapse;
-	border: none;
-	width: 100%;
-	margin: 15px 0;
+  border-collapse: collapse;
+  border: none;
+  width: 100%;
+  margin: 15px 0;
 }
 .tableRowHeader {
-	background-color: $background-color_1;
-	transition: all 0.25s ease;
-	border-radius: 10px;
+  background-color: $background-color_1;
+  transition: all 0.25s ease;
+  border-radius: 10px;
 }
 .tableHeader {
-	padding: 12px;
-	font-weight: 500;
-	text-align: center;
-	font-size: 14px;
-	color: $color_1;
-	&:first-child {
-		border-top-left-radius: 15px;
-	}
-	&:last-child {
-		border-top-right-radius: 15px;
-	}
+  padding: 12px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 14px;
+  color: $color_1;
+  &:first-child {
+    border-top-left-radius: 15px;
+  }
+  &:last-child {
+    border-top-right-radius: 15px;
+  }
 }
 .tableRowItems {
-	cursor: auto;
-	border-bottom: solid rgb(108, 108, 108) 0.5px;
-	&:nth-child(odd) {
-		background-color: $background-color_2;
-	}
+  cursor: auto;
+  border-bottom: solid rgb(108, 108, 108) 0.5px;
+  &:nth-child(odd) {
+    background-color: $background-color_2;
+  }
 }
 .tableCell {
-	padding: 12px;
-	font-size: 14px;
-	color: $color_2;
-	border: none;
+  padding: 12px;
+  font-size: 14px;
+  color: $color_2;
+  border: none;
 }

@@ -32,17 +32,12 @@ const Login = () => {
         <h1>Đăng nhập</h1>
         <div className="bar"></div>
         <label>
-          <input
-            type="tel"
-            value={phoneNumber}
-            placeholder="Số điện thoại"
-            onChange={handlePhoneNumberChange}
-          />
+          <input type="tel" value={phoneNumber} placeholder="Số điện thoại" onChange={handlePhoneNumberChange} />
         </label>
         <label className="password">
           <div className="password-input-container">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               value={password}
               placeholder="Mật khẩu"
               onChange={handlePasswordChange}
@@ -50,11 +45,7 @@ const Login = () => {
             />
 
             <div className="password-icon" onClick={toggleShowPassword}>
-              {showPassword ? (
-                <AiOutlineEyeInvisible />
-              ) : (
-                <AiOutlineEye />
-              )}
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
             </div>
           </div>
         </label>

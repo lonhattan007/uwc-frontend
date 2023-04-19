@@ -14,11 +14,7 @@ export const StaffView = () => {
           {staffData.map((item, index) => (
             <button
               key={index}
-              className={
-                index === chosen
-                  ? 'button activeButton'
-                  : 'button inactiveButton'
-              }
+              className={index === chosen ? 'button activeButton' : 'button inactiveButton'}
               onClick={() => setChosen(index)}
             >
               {item.name}

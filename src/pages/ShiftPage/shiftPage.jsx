@@ -33,7 +33,6 @@ function ShiftPage() {
   const lableToDateRef = useRef(null);
   const [showNewShiftModal, setShowNewShiftModal] = useState(false);
 
-
   const handleSelect = (event) => {
     // update selected option state
     setSelectedOption(event.target.value);
@@ -196,8 +195,7 @@ function ShiftPage() {
   };
   const handleCancel = () => {
     setShowNewShiftModal(false);
-  }
-
+  };
 
   return (
     <>
@@ -211,14 +209,11 @@ function ShiftPage() {
               Tạo ca mới
             </button>
             {showNewShiftModal && (
-              <div className={cx('new-shift-modal')} >
+              <div className={cx('new-shift-modal')}>
                 <div className={cx('modal-inner')}>
                   <div className={cx('modal-header')}>
                     <h2 className={cx('modal-title')}>Tạo ca mới</h2>
-                    <button
-                      className={cx('close-button')}
-                      onClick={() => setShowNewShiftModal(false)}
-                    >
+                    <button className={cx('close-button')} onClick={() => setShowNewShiftModal(false)}>
                       <FontAwesomeIcon icon={faTimes} />
                     </button>
                   </div>
@@ -245,14 +240,17 @@ function ShiftPage() {
                     </div>
                   </div>
                   <div className={cx('modal-footer')}>
-                    <button className={cx('cancel-button')} onClick={handleCancel}>Hủy bỏ</button>
+                    <button className={cx('cancel-button')} onClick={handleCancel}>
+                      Hủy bỏ
+                    </button>
 
-                    <button className={cx('confirm-button')} onClick={handleCancel}>Xác nhận</button>
+                    <button className={cx('confirm-button')} onClick={handleCancel}>
+                      Xác nhận
+                    </button>
                   </div>
                 </div>
               </div>
             )}
-
           </div>
         </div>
         <div className={cx('content')}>

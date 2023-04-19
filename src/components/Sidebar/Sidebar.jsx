@@ -1,10 +1,4 @@
-import {
-  CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
-  CDBSidebarHeader,
-  CDBSidebarMenu,
-} from 'cdbreact';
+import { CDBSidebar, CDBSidebarContent, CDBSidebarFooter, CDBSidebarHeader, CDBSidebarMenu } from 'cdbreact';
 import SidebarItem from './SidebarItem';
 
 import './Sidebar.scss';
@@ -51,10 +45,7 @@ const Sidebar = () => {
         backgroundColor="#1e1e2e"
         breakpoint={960}
       >
-        <CDBSidebarHeader
-          className="sidebar-header"
-          prefix={<i className="fa fa-bars fa-large"></i>}
-        >
+        <CDBSidebarHeader className="sidebar-header" prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/user-info" className="text-decoration-none">
             Back Officer #1
           </a>
@@ -78,12 +69,7 @@ const Sidebar = () => {
           {/*<a href="/logout" className="logout activeClicked">
             Đăng xuất
           </a>*/}
-          <SidebarItem
-            route="logout"
-            icon="sign-out-alt"
-            title="Đăng xuất"
-            active={false}
-          />
+          <SidebarItem route="logout" icon="sign-out-alt" title="Đăng xuất" active={false} />
         </CDBSidebarFooter>
       </CDBSidebar>
     </>
