@@ -14,10 +14,13 @@ import ShiftPage from '@pages/ShiftPage/shiftPage';
 import StaffPage from '@pages/Staff/StaffPage';
 import Taskassign1 from '@pages/Taskassign1/Taskassign1';
 import Taskassign2 from '@pages/Taskassign2/Taskassign2';
+import Login from '@pages/Login/Login';
+import ForgotPass from '@pages/ForgotPass/ForgotPass';
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainPage />,
+    element: <Login />,
   },
   {
     path: '/user-info',
@@ -57,7 +60,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/logout',
-    element: <MainPage />,
+    element: <Login />,
   },
 ]);
 
