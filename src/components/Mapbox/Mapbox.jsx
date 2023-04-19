@@ -1,8 +1,9 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { Link } from 'react-router-dom';
 import Routing from "./FindRoute";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import "leaflet/dist/leaflet.css";
 import './style.scss'
 const VITE_USERNAME =  'thanhtuancsk20'
@@ -12,11 +13,14 @@ const Mapbox = () => {
   const position = [10.880758675454759, 106.80538629714444];
   return (
     <div className="Mapbox">
-    <Link to = '/'>
-        <button>
-            Quay lại
-        </button>
-    </Link>
+      <div className="header">
+        <a href="">
+          <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
+        </a>
+        <a className="go-back" href="/">
+          Quay lại
+        </a>
+      </div>
     <MapContainer
       center={position}
       zoom={13}

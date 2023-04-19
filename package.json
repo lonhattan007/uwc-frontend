@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.3",
     "cdbreact": "^1.5.11",
     "leaflet": "^1.9.3",
+    "leaflet-control-geocoder": "^2.4.0",
     "leaflet-routing-machine": "^3.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
