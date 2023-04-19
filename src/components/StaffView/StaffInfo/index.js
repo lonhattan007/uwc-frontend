@@ -1,1 +1,1 @@
-export {defaults} from './InfoStaff'
+export { defaults } from './InfoStaff';

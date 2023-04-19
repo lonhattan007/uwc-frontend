@@ -76,17 +76,15 @@ export const StaffInfo = ({ data }) => {
   return (
     <div>
       <div className="info">
-        {[getFirstRow(data), getSecondRow(data), getThirdRow(data)].map(
-          (row) => (
-            <div>
-              {row.map((item) => (
-                <div>
-                  <span>{item.field}: </span> {item.content}
-                </div>
-              ))}
-            </div>
-          ),
-        )}
+        {[getFirstRow(data), getSecondRow(data), getThirdRow(data)].map((row) => (
+          <div>
+            {row.map((item) => (
+              <div>
+                <span>{item.field}: </span> {item.content}
+              </div>
+            ))}
+          </div>
+        ))}
         <span>Lịch sử công việc: </span>
       </div>
       <table className="table">

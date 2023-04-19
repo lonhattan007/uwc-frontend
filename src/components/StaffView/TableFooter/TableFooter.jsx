@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import "./style.scss";
+import './style.scss';
 
 const TableFooter = ({ range, setPage, page, slice }) => {
   useEffect(() => {
@@ -9,13 +9,11 @@ const TableFooter = ({ range, setPage, page, slice }) => {
     }
   }, [slice, page, setPage]);
   return (
-    <div className = "tableFooter">
+    <div className="tableFooter">
       {range.map((el, index) => (
         <button
           key={index}
-          className={
-            page === el ? "Fbutton activeFButton" : "Fbutton inactiveFButton"
-          }
+          className={page === el ? 'Fbutton activeFButton' : 'Fbutton inactiveFButton'}
           onClick={() => setPage(el)}
         >
           {el}
