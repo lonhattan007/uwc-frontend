@@ -146,7 +146,7 @@ function ShiftTable({ shiftData }) {
                 <td>{shift.completedTask}</td>
                 <td>
                   <div className={cx('button-container')}>
-                    <button className={cx('show-btn')}>Show</button>
+                    <button className={cx('show-btn')}>Chi tiết</button>
                   </div>
                 </td>
                 <td

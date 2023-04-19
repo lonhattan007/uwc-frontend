@@ -259,7 +259,7 @@ function ShiftPage() {
           <div className={cx('inner-content')}>
             <div className={cx('filter-section')}>
               <div className={cx('filter-header')}>
-                <h6 className={cx('filter-title')}>Filter</h6>
+                <h6 className={cx('filter-title')}>Bộ lọc</h6>
                 <div className={cx('filter-icon')}>
                   <FontAwesomeIcon icon={faFilter} />
                 </div>
@@ -269,7 +269,7 @@ function ShiftPage() {
                   <div className={cx('filter-input')} ref={containerDateRef}>
                     <div className={cx('input-container')}>
                       <label htmlFor="fromDate" ref={lableFromDateRef}>
-                        From
+                        Từ ngày
                       </label>
                       <input
                         id="fromDate"
@@ -289,7 +289,7 @@ function ShiftPage() {
                   <div className={cx('filter-input')} ref={containerDateRef1}>
                     <div className={cx('input-container')}>
                       <label htmlFor="toDate" ref={lableToDateRef}>
-                        To
+                        Đến ngày
                       </label>
                       <input
                         id="toDate"
