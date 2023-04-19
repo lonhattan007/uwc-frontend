@@ -19,7 +19,9 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     // Perform login logic
-    console.log(`Phone number: ${phoneNumber}, Password: ${password}`);
+    // console.log(`Phone number: ${phoneNumber}, Password: ${password}`);
+    localStorage.setItem('userLoggedIn', 'true');
+    window.location.assign('/calendar');
   };
 
   const toggleShowPassword = () => {
@@ -51,7 +53,9 @@ const Login = () => {
         </label>
 
         <Link to="/calendar">
-          <button type="submit">Đăng nhập</button>
+          <button type="submit" onClick={handleLogin}>
+            Đăng nhập
+          </button>
         </Link>
         <div className="forgotPass">
           <label className="remember-me">

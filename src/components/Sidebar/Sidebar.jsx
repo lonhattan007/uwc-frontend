@@ -24,16 +24,17 @@ const SIDEBAR_ITEMS = [
     icon: 'users',
     title: 'Nhân viên',
   },
-  {
-    route: 'settings',
-    icon: 'cog',
-    title: 'Cài đặt',
-  },
 ];
 
 const Sidebar = () => {
   const compareRoute = (route) => {
     return document.URL.split('/')[3] === route;
+  };
+
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    localStorage.setItem('userLoggedIn', 'false');
+    window.location.assign('login');
   };
 
   return (
@@ -46,9 +47,7 @@ const Sidebar = () => {
         breakpoint={960}
       >
         <CDBSidebarHeader className="sidebar-header" prefix={<i className="fa fa-bars fa-large"></i>}>
-          <a href="/user-info" className="text-decoration-none">
-            Back Officer #1
-          </a>
+          <a className="text-decoration-none">Back Officer #1</a>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">
@@ -66,10 +65,7 @@ const Sidebar = () => {
         </CDBSidebarContent>
 
         <CDBSidebarFooter className="sidebar-footer">
-          {/*<a href="/logout" className="logout activeClicked">
-            Đăng xuất
-          </a>*/}
-          <SidebarItem route="logout" icon="sign-out-alt" title="Đăng xuất" active={false} />
+          <SidebarItem route="login" icon="sign-out-alt" title="Đăng xuất" active={false} onClick={handleLogOut} />
         </CDBSidebarFooter>
       </CDBSidebar>
     </>

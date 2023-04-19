@@ -8,9 +8,9 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { vehicleData } from '@mocks/vehicledata/vehicledata';
-// import { Container, Row, Col } from 'react-bootstrap';
 import './Taskassign1.scss';
-function VehicleList() {
+
+const VehicleList = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const options = vehicleData.map((vehicle) => ({
     value: vehicle.value,
@@ -72,7 +72,8 @@ function VehicleList() {
     </div>
   );
 }
-function Driverlist() {
+
+const Driverlist = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const options = driverData.map((driver) => ({
     value: driver.value,
@@ -136,7 +137,8 @@ function Driverlist() {
     </div>
   );
 }
-function Content() {
+
+const Content = () => {
   return (
     <>
       <div className="header">
@@ -170,7 +172,7 @@ function Content() {
   );
 }
 
-function Taskassign1() {
+const Taskassign1 = () => {
   return (
     <>
       <div id="workspace">
@@ -184,4 +186,5 @@ function Taskassign1() {
     </>
   );
 }
+
 export default Taskassign1;

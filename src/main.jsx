@@ -7,50 +7,48 @@ import * as bootstrap from 'bootstrap';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+
 import MainPage from '@pages/main/MainPage';
-import ShiftPage from '@pages/ShiftPage/shiftPage';
-import StaffPage from '@pages/Staff/StaffPage';
-import Taskassign1 from '@pages/Taskassign1/Taskassign1';
-import Taskassign2 from '@pages/Taskassign2/Taskassign2';
 import Login from '@pages/Login/Login';
 import ForgotPass from '@pages/ForgotPass/ForgotPass';
-import TaskListView from '@pages/TaskListView/TaskListView';
-import CalendarView from '@pages/CalendarView/CalendarView';
-import TaskView from '@pages/TaskView/TaskView';
+import CalendarPage from '@pages/CalendarPage';
+import ShiftPage from '@pages/ShiftPage/shiftPage';
+import StaffPage from '@pages/StaffPage';
+import Taskassign1 from '@pages/Taskassign1/Taskassign1';
+import Taskassign2 from '@pages/Taskassign2/Taskassign2';
+import TaskListPage from '@pages/TaskListPage/TaskListPage';
+import TaskPage from '@pages/TaskPage';
+import Mapbox from '@components/Mapbox/Mapbox';
+
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Navigate to={localStorage.userLoggedIn === 'true' ? '/calendar' : '/login'} />,
+  },
+  {
+    path: '/login',
     element: <Login />,
   },
   {
-    path: '/user-info',
-    element: <MainPage />,
+    path: '/calendar',
+    element: <CalendarPage />,
   },
   {
     path: '/shifts',
     element: <ShiftPage />,
   },
   {
-    path: '/calendar',
-    element: <CalendarView />,
+    path: '/tasks',
+    element: <TaskListPage />,
   },
   {
-    path: '/task-list-view',
-    element: <TaskListView />,
-  },
-  {
-    path: '/task-view',
-    element: <TaskView />,
-  },
-  {
-    path: '/shifts',
-    element: <MainPage />,
+    path: '/tasks/task',
+    element: <TaskPage />,
   },
   {
     path: '/collecting-sites',
-    element: <MainPage />,
+    element: <Mapbox />,
   },
   {
     path: '/staffs',
@@ -63,14 +61,6 @@ const router = createBrowserRouter([
   {
     path: '/taskassign2',
     element: <Taskassign2 />,
-  },
-  {
-    path: '/settings',
-    element: <MainPage />,
-  },
-  {
-    path: '/logout',
-    element: <Login />,
   },
   {
     path: '/forgot',

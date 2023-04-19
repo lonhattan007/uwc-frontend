@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import React, { useRef, useState, forwardRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import './CalendarView.scss';
+import './CalendarPage.scss';
 import Sidebar from '@components/Sidebar';
 
 function ContentCalendarView() {
@@ -72,7 +72,9 @@ function CalendarView() {
   return (
     <div style={{ width: '100%', display: 'flex' }}>
       <Sidebar />
-      <ContentCalendarView />
+      <div style={{ flex: 1 }}>
+        <ContentCalendarView />
+      </div>
     </div>
   );
 }

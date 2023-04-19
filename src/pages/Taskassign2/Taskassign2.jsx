@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
-import '../Taskassign1/Taskassign1.scss';
 import { Link } from 'react-router-dom';
+
+import '../Taskassign1/Taskassign1.scss';
+
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { janiorData } from '@mocks/vehicledata/janiordata';
-function Content() {
+
+const Content = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedOption2, setSelectedOption2] = useState([]);
   const options = driverData.map((driver) => ({
@@ -187,7 +190,8 @@ function Content() {
     </>
   );
 }
-function Taskassign2() {
+
+const Taskassign2 = () => {
   return (
     <>
       <div id="workspace">
@@ -201,4 +205,5 @@ function Taskassign2() {
     </>
   );
 }
+
 export default Taskassign2;

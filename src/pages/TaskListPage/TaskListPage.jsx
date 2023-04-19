@@ -1,8 +1,7 @@
 import Sidebar from '@components/Sidebar/Sidebar';
-import React from 'react';
-
 import { FaPlus, FaArrowLeft, FaCalendar, FaClock, FaCheck, FaEllipsisV } from 'react-icons/fa';
-function TaskListView_Header() {
+
+const TaskListViewHeader = () => {
   const TaskListView_Header = {
     display: 'flex',
     margin: '0rem 2rem',
@@ -45,8 +44,9 @@ function TaskListView_Header() {
       </button>
     </div>
   );
-}
-function TaskListView_Content_Left(props) {
+};
+
+const TaskListViewContentLeft = (props) => {
   const TaskListView_Content_Left = {
     width: '60%',
     backgroundColor: '#fff',
@@ -124,8 +124,9 @@ function TaskListView_Content_Left(props) {
       </div>
     </div>
   );
-}
-function TaskListView_Content_Right(props) {
+};
+
+const TaskListViewContentRight = (props) => {
   const TaskListView_Content_Right = {
     backgroundColor: '#fff',
     margin: '0 2rem',
@@ -182,8 +183,9 @@ function TaskListView_Content_Right(props) {
       </div>
     </div>
   );
-}
-function TaskListView_Content() {
+};
+
+const TaskListViewContent = () => {
   const taskListView_Content = {
     width: '100%',
     display: 'flex',
@@ -193,18 +195,19 @@ function TaskListView_Content() {
   };
   return (
     <div style={taskListView_Content} className="taskListView_Content">
-      <TaskListView_Content_Left
+      <TaskListViewContentLeft
         idShift="# 4 0 0 1"
         dayShift="12/5/2023"
         statusShift="Đang diễn ra"
         startShift="6:00"
         endShift="9:00"
       />
-      <TaskListView_Content_Right timeProgress="1" idProgress="# 1 0 0 1" />
+      <TaskListViewContentRight timeProgress="1" idProgress="# 1 0 0 1" />
     </div>
   );
-}
-function TaskListView_Table() {
+};
+
+const TaskListViewTable = () => {
   const TaskListView_Table = {
     width: '90%',
     margin: 'auto',
@@ -242,6 +245,7 @@ function TaskListView_Table() {
   const thead = {
     width: '100%',
   };
+
   return (
     <div style={TaskListView_Table}>
       <table style={table}>
@@ -294,7 +298,7 @@ function TaskListView_Table() {
             <td>Nguyễn Văn A</td>
             <td>#LT1003</td>
             <td>
-              <a href="#" style={buttonShow}>
+              <a href="/tasks/task" style={buttonShow}>
                 Show
               </a>
             </td>
@@ -321,23 +325,25 @@ function TaskListView_Table() {
       </table>
     </div>
   );
-}
-function TaskListView() {
+};
+
+const TaskListPage = () => {
   const TaskListView = {
     width: '100%',
     backgroundColor: '#f2f2f2',
     height: '100vh',
+    overflow: 'scroll',
   };
   return (
     <>
       <Sidebar />
       <div style={TaskListView}>
-        <TaskListView_Header />
-        <TaskListView_Content />
-        <TaskListView_Table />
+        <TaskListViewHeader />
+        <TaskListViewContent />
+        <TaskListViewTable />
       </div>
     </>
   );
-}
+};
 
-export default TaskListView;
+export default TaskListPage;
