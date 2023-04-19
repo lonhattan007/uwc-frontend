@@ -32,17 +32,12 @@ const ForgotPass = () => {
         <h1>Lấy lại mật khẩu</h1>
         <div className="bar"></div>
         <label>
-          <input
-            type="tel"
-            value={phoneNumber}
-            placeholder="Số điện thoại"
-            onChange={handlePhoneNumberChange}
-          />
+          <input type="tel" value={phoneNumber} placeholder="Số điện thoại" onChange={handlePhoneNumberChange} />
         </label>
         <label className="password">
           <div className="password-input-container">
             <input
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               value={password}
               placeholder="Mã OTP"
               onChange={handlePasswordChange}
@@ -50,15 +45,10 @@ const ForgotPass = () => {
             />
 
             <div className="password-icon" onClick={toggleShowPassword}>
-              {showPassword ? (
-                <AiOutlineEyeInvisible />
-              ) : (
-                <AiOutlineEye />
-              )}
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
             </div>
           </div>
         </label>
-
 
         <Link to="/">
           <button type="submit">Xác nhận</button>

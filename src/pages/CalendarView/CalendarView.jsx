@@ -8,72 +8,72 @@ import './CalendarView.scss';
 import Sidebar from '@components/Sidebar';
 
 function ContentCalendarView() {
-    const [showForm, setShowForm] = useState(false);
-    const [selectedDate, setSelectedDate] = useState(null);
-    const noteRef = useRef(null);
-    const calendarRef = useRef(null);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const noteRef = useRef(null);
+  const calendarRef = useRef(null);
 
-    const handleSelect = (arg) => {
+  const handleSelect = (arg) => {
     setSelectedDate(arg.start);
     setShowForm(true);
-    };
+  };
 
-    const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const note = noteRef.current.value;
     const eventObj = {
-        title: note,
-        start: selectedDate,
-        allDay: true,
+      title: note,
+      start: selectedDate,
+      allDay: true,
     };
     calendarRef.current.getApi().addEvent(eventObj);
     setShowForm(false);
-    };
-    console.log(showForm);
-    return (
+  };
+  console.log(showForm);
+  return (
     <div className="calendar">
-        <FullCalendar
+      <FullCalendar
         ref={calendarRef}
         plugins={[dayGridPlugin]}
         select={handleSelect}
         dayCellContent={({ date }) => (
-            <div className="day-cell">
-                <div className="day-number">{date.getDate()}</div>
-                {date.toDateString() === new Date().toDateString() && (
-                    <div className="note">
-                        <p>
-                            <span>Số nhiệm vụ: 6</span>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span>Hoàn thành: 0</span>
-                            </div>
-                        </p>
-                    </div>
-                )}
-                <div className="add-icon" onClick={() => setSelectedDate(date)}>
-                <FontAwesomeIcon icon={faPlus} />
-                </div>
+          <div className="day-cell">
+            <div className="day-number">{date.getDate()}</div>
+            {date.toDateString() === new Date().toDateString() && (
+              <div className="note">
+                <p>
+                  <span>Số nhiệm vụ: 6</span>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <span>Hoàn thành: 0</span>
+                  </div>
+                </p>
+              </div>
+            )}
+            <div className="add-icon" onClick={() => setSelectedDate(date)}>
+              <FontAwesomeIcon icon={faPlus} />
             </div>
+          </div>
         )}
-        />
+      />
 
-        {showForm && (
+      {showForm && (
         <div className="form-container">
-            <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="note">Note:</label>
             <textarea id="note" name="note" ref={noteRef} />
             <button type="submit">Add note</button>
-            </form>
+          </form>
         </div>
-        )}
+      )}
     </div>
-    );
+  );
 }
 function CalendarView() {
-    return (
-        <div style={{width: "100%", display: "flex"}}>
-            <Sidebar />
-            <ContentCalendarView />
-        </div>
-    );
+  return (
+    <div style={{ width: '100%', display: 'flex' }}>
+      <Sidebar />
+      <ContentCalendarView />
+    </div>
+  );
 }
 export default CalendarView;

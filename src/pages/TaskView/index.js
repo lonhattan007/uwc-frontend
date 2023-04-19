@@ -1,1 +1,1 @@
-export {default} from './TaskView'
+export { default } from './TaskView';

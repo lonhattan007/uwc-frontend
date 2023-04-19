@@ -1,1 +1,1 @@
-export {default} from './CalendarView'
+export { default } from './CalendarView';

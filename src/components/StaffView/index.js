@@ -1,1 +1,1 @@
-export {defaults} from './StaffView'
+export { defaults } from './StaffView';
