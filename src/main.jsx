@@ -12,6 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import MainPage from '@pages/main/MainPage';
 import StaffPage from '@pages/Staff/StaffPage';
+import Mapbox from '@components/Mapbox/Mapbox';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
     path: '/logout',
     element: <MainPage />,
   },
+  {
+    path: '/map',
+    element: <Mapbox />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
