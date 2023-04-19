@@ -19,6 +19,7 @@ import ForgotPass from '@pages/ForgotPass/ForgotPass';
 import TaskListView from '@pages/TaskListView/TaskListView';
 import CalendarView from '@pages/CalendarView/CalendarView';
 import TaskView from '@pages/TaskView/TaskView';
+import Mapbox from '@components/Mapbox/Mapbox';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
   {
     path: '/logout',
     element: <Login />,
+  },
+  {
+    path: '/map',
+    element: <Mapbox />,
   },
 ]);
 
