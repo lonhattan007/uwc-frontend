@@ -27,6 +27,8 @@ const SIDEBAR_ITEMS = [
 ];
 
 const Sidebar = () => {
+  const toggleBreakpoint = 960;
+
   const compareRoute = (route) => {
     return document.URL.split('/')[3] === route;
   };
@@ -34,7 +36,7 @@ const Sidebar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
     localStorage.setItem('userLoggedIn', 'false');
-    window.location.assign('login');
+    window.location.assign('logout');
   };
 
   return (
@@ -44,7 +46,8 @@ const Sidebar = () => {
         className="sidebar"
         textColor="#fff"
         backgroundColor="#1e1e2e"
-        breakpoint={960}
+        toggled={window.innerWidth <= toggleBreakpoint}
+        breakpoint={toggleBreakpoint}
       >
         <CDBSidebarHeader className="sidebar-header" prefix={<i className="fa fa-bars fa-large"></i>}>
           <a className="text-decoration-none">Back Officer #1</a>
@@ -65,7 +68,7 @@ const Sidebar = () => {
         </CDBSidebarContent>
 
         <CDBSidebarFooter className="sidebar-footer">
-          <SidebarItem route="login" icon="sign-out-alt" title="Đăng xuất" active={false} onClick={handleLogOut} />
+          <SidebarItem icon="sign-out-alt" title="Đăng xuất" active={false} onClick={handleLogOut} />
         </CDBSidebarFooter>
       </CDBSidebar>
     </>
