@@ -1,5 +1,6 @@
-import Sidebar from '@components/Sidebar';
 import React, { useRef, useState, forwardRef } from 'react';
+
+import Sidebar from '@components/Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';

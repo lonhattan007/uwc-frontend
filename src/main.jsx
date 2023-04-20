@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './scss/styles.scss';
 import * as bootstrap from 'bootstrap';
+import './scss/styles.scss';
 
 import { Provider } from 'react-redux';
 import store from './store/store';
 
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
-import MainPage from '@views/main/MainPage';
+import MainPage from '@views/main';
 import LoginView from '@views/LoginView';
 import ForgotPassView from '@views/ForgotPassView';
 import CalendarView from '@views/CalendarView';

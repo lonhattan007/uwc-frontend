@@ -1,14 +1,17 @@
-import Sidebar from '@components/Sidebar';
 import React, { useRef, useState, forwardRef } from 'react';
+
+import Sidebar from '@components/Sidebar';
 import Select from 'react-select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faPerson } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+
+import './TaskAssign.scss';
+
 import { driverData } from '@mocks/vehicledata/driverdata';
 import { vehicleData } from '@mocks/vehicledata/vehicledata';
-import './TaskAssign.scss';
 
 const VehicleList = () => {
   const [selectedOption, setSelectedOption] = useState('');
