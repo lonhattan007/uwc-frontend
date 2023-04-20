@@ -9,16 +9,15 @@ import store from './store/store';
 
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
-import MainPage from '@pages/main/MainPage';
-import Login from '@pages/Login/Login';
-import ForgotPass from '@pages/ForgotPass/ForgotPass';
-import CalendarPage from '@pages/CalendarPage';
-import ShiftPage from '@pages/ShiftPage/shiftPage';
-import StaffPage from '@pages/StaffPage';
-import Taskassign1 from '@pages/Taskassign1/Taskassign1';
-import Taskassign2 from '@pages/Taskassign2/Taskassign2';
-import TaskListPage from '@pages/TaskListPage/TaskListPage';
-import TaskPage from '@pages/TaskPage';
+import MainPage from '@views/main/MainPage';
+import LoginView from '@views/LoginView';
+import ForgotPassView from '@views/ForgotPassView';
+import CalendarView from '@views/CalendarView';
+import ShiftView from '@views/ShiftView';
+import StaffView from '@views/StaffView';
+import { TaskAssignView1, TaskAssignView2 } from '@views/TaskAssignView';
+import TaskListView from '@views/TaskListView/TaskListView';
+import TaskView from '@views/TaskView';
 import Mapbox from '@components/Mapbox/Mapbox';
 
 const router = createBrowserRouter([
@@ -28,23 +27,27 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login />,
+    element: <LoginView />,
+  },
+  {
+    path: '/logout',
+    element: <Navigate to="/login" />,
   },
   {
     path: '/calendar',
-    element: <CalendarPage />,
+    element: <CalendarView />,
   },
   {
     path: '/shifts',
-    element: <ShiftPage />,
+    element: <ShiftView />,
   },
   {
     path: '/tasks',
-    element: <TaskListPage />,
+    element: <TaskListView />,
   },
   {
     path: '/tasks/task',
-    element: <TaskPage />,
+    element: <TaskView />,
   },
   {
     path: '/collecting-sites',
@@ -52,19 +55,19 @@ const router = createBrowserRouter([
   },
   {
     path: '/staffs',
-    element: <StaffPage />,
+    element: <StaffView />,
   },
   {
     path: '/taskassign1',
-    element: <Taskassign1 />,
+    element: <TaskAssignView1 />,
   },
   {
     path: '/taskassign2',
-    element: <Taskassign2 />,
+    element: <TaskAssignView2 />,
   },
   {
     path: '/forgot',
-    element: <ForgotPass />,
+    element: <ForgotPassView />,
   },
 ]);
 
