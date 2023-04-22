@@ -68,11 +68,11 @@ uwc-frontent/
 |   |   |   |__ ...
 |   |   |   |__ index.js........... - exporting modules
 |   |   |__ ...
-|   |__ pages/..................... - page-level components
-|   |   |__ pageA/
-|   |   |   |__ PageA.jsx
+|   |__ views/..................... - page-level components
+|   |   |__ ViewA/
+|   |   |   |__ ViewA.jsx
 |   |   |   |__ SubComponentB.jsx
-|   |   |   |__ PageA.scss
+|   |   |   |__ ViewA.scss
 |   |   |   |__ ...
 |   |   |   |__ index.js........... - exporting modules
 |   |   |__ ...

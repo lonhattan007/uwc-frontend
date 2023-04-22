@@ -1,83 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './scss/styles.scss';
 import * as bootstrap from 'bootstrap';
+import '@styles/styles.scss';
 
 import { Provider } from 'react-redux';
-import store from './store/store';
+import store from '@stores/store';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
-import MainPage from '@pages/main/MainPage';
-import ShiftPage from '@pages/ShiftPage/shiftPage';
-import StaffPage from '@pages/Staff/StaffPage';
-import Taskassign1 from '@pages/Taskassign1/Taskassign1';
-import Taskassign2 from '@pages/Taskassign2/Taskassign2';
-import Login from '@pages/Login/Login';
-import ForgotPass from '@pages/ForgotPass/ForgotPass';
-import TaskListView from '@pages/TaskListView/TaskListView';
-import CalendarView from '@pages/CalendarView/CalendarView';
-import TaskView from '@pages/TaskView/TaskView';
-import Mapbox from '@components/Mapbox/Mapbox';
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Login />,
-  },
-  {
-    path: '/user-info',
-    element: <MainPage />,
-  },
-  {
-    path: '/shifts',
-    element: <ShiftPage />,
-  },
-  {
-    path: '/calendar',
-    element: <CalendarView />,
-  },
-  {
-    path: '/task-list-view',
-    element: <TaskListView />,
-  },
-  {
-    path: '/task-view',
-    element: <TaskView />,
-  },
-  {
-    path: '/shifts',
-    element: <MainPage />,
-  },
-  {
-    path: '/collecting-sites',
-    element: <MainPage />,
-  },
-  {
-    path: '/staffs',
-    element: <StaffPage />,
-  },
-  {
-    path: '/taskassign1',
-    element: <Taskassign1 />,
-  },
-  {
-    path: '/taskassign2',
-    element: <Taskassign2 />,
-  },
-  {
-    path: '/settings',
-    element: <MainPage />,
-  },
-  {
-    path: '/logout',
-    element: <Login />,
-  },
-  {
-    path: '/map',
-    element: <Mapbox />,
-  },
-]);
+import { RouterProvider } from 'react-router-dom';
+import router from '@routes/router';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

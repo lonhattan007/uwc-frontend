@@ -10,8 +10,11 @@ export default defineConfig({
       '~bootstrap': path.resolve((__dirname, 'node_modules/bootstrap')),
       '@assets': path.resolve((__dirname, './src/assets/')),
       '@components': path.resolve((__dirname, './src/components/')),
-      '@pages': path.resolve((__dirname, './src/pages/')),
+      '@views': path.resolve((__dirname, './src/views/')),
       '@mocks': path.resolve((__dirname, './mocks/')),
+      '@styles': path.resolve((__dirname, './src/scss')),
+      '@stores': path.resolve((__dirname, './src/stores')),
+      '@routes': path.resolve((__dirname, './src/routes'))
     },
   },
   test: {

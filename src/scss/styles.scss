@@ -1,5 +1,6 @@
 // Import all of Bootstrap's CSS
 @import '~bootstrap/scss/bootstrap';
+@import '@styles/theme.scss';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -15,6 +16,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --fc-button-bg-color: #1e1e2e;
+  --fc-button-border-color: #1e1e2e;
+
+  --fc-button-hover-bg-color: #303446;
+  --fc-button-hover-border-color: #303446;
 }
 
 #root {
@@ -78,6 +85,10 @@ button {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+
+#workspace {
+  flex: 1;
 }
 
 @media (prefers-color-scheme: light) {

@@ -4,8 +4,11 @@
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@mocks/*": ["./mocks/*"]
+      "@views/*": ["./src/views/*"],
+      "@mocks/*": ["./mocks/*"],
+      "@styles/*": ["./src/scss/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@routes/*": ["./src/routes/*"],
     }
   }
 }

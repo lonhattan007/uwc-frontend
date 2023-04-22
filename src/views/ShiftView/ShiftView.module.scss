@@ -1,0 +1,343 @@
+@import '@styles/theme.scss';
+
+.container {
+  flex: 1;
+  margin-top: 2%;
+  width: 80%;
+}
+
+.header {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  color: $text-color-dark;
+}
+
+.new-shift-button {
+  background-color: #018241;
+  /* Green background */
+  border: none;
+  /* No border */
+  color: white;
+  /* White text */
+  padding: 6px 16px;
+  /* Padding */
+  text-align: center;
+  /* Centered text */
+  text-decoration: none;
+  /* No underline */
+  display: inline-block;
+  /* Display as inline-block */
+  font-size: 16px;
+  /* Font size */
+  margin: 40px 2px;
+  /* Margin */
+  transition-duration: 0.4s;
+  /* Transition time */
+  cursor: pointer;
+  /* Cursor on hover */
+  border-radius: 50px;
+  /* Rounded edges */
+  &:hover {
+    background-color: #3e8e41;
+    /* Darker green on hover */
+    color: white;
+    /* White text on hover */
+  }
+  svg {
+    margin-right: 8px;
+    color: #15f901;
+  }
+}
+
+.content {
+  display: flex;
+  height: 90%;
+  justify-content: center;
+}
+
+.inner-content {
+  height: 100%;
+  width: 90%;
+  display: block;
+}
+
+.filter-section {
+  margin-top: 0px;
+  padding: 10px 24px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  width: 100%;
+  height: 25%;
+}
+
+.filter-header {
+  width: 100%;
+  height: 16%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.filter-title {
+  height: 100%;
+  margin: 2px 0px;
+}
+
+.filter-icon {
+  size: 4px;
+  height: 100%;
+  margin: 2px 0px;
+}
+
+.filter {
+  display: flex;
+  position: relative;
+}
+
+.filter-option {
+  position: relative;
+  left: 0px;
+  height: 84%;
+  width: 48%;
+  padding: 2px 8px;
+  padding-left: 0px;
+}
+
+.filter-input {
+  position: relative;
+  left: 0;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  margin: 15px 0px;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(111, 105, 105, 0.5);
+  border-radius: 10px;
+  &:hover {
+    box-shadow: 0 0 0 1px #333;
+  }
+  &:focus-within {
+    box-shadow: 0 0 0 2px #018241;
+  }
+}
+
+.input-container {
+  height: 40px;
+  padding: 8px 0px;
+  position: relative;
+  width: 80%;
+  label {
+    background-color: #ffffff;
+    margin-top: 2px;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+.date-input {
+  border: none;
+  background-color: #ffff;
+  margin-left: 12px;
+  color: #000;
+  &:hover {
+    border: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon-container {
+  height: 40px;
+  padding: 8px 0px;
+  position: absolute;
+  right: 12px;
+}
+
+.status-input {
+  width: 100%;
+  margin: 1.5px 0;
+  border-radius: none;
+  box-shadow: none !important;
+  border: transparent;
+}
+
+.selected-status {
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+.filter-second-date {
+  position: relative;
+  padding: 2px 8px;
+  width: 50%;
+  text-align: right;
+}
+
+.filter-btn {
+  background-color: #018241;
+  /* Green background */
+  border: none;
+  /* No border */
+  color: white;
+  /* White text */
+  padding: 6px 16px;
+  /* Padding */
+  text-align: center;
+  /* Centered text */
+  text-decoration: none;
+  /* No underline */
+  display: inline-block;
+  /* Display as inline-block */
+  font-size: 16px;
+  /* Font size */
+  width: 128px;
+  transition-duration: 0.4s;
+  /* Transition time */
+  cursor: pointer;
+  /* Cursor on hover */
+  border-radius: 10px;
+  /* Rounded edges */
+  &:hover {
+    background-color: #3e8e41;
+    /* Darker green on hover */
+    color: white;
+    /* White text on hover */
+  }
+  svg {
+    margin-right: 8px;
+    color: #15f901;
+  }
+}
+
+.table-section {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  margin-top: 12px;
+  box-shadow: 0px 24px 65px rgba(20, 20, 43, 0.16);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #ffffff;
+}
+
+//scss tao ca mới
+.new-shift-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  .modal-inner {
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    .modal-header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .close-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #999999;
+    }
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      grid-column: 1 / -1;
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        label {
+          font-size: 16px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+        input,
+        select {
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          padding: 8px 10px;
+          font-size: 16px;
+          margin-top: 5px;
+          max-width: 150px;
+        }
+        #start-time-input,
+        #end-time-input {
+          width: 100%;
+        }
+        #status-input,
+        #date-input {
+          width: 100%;
+        }
+      }
+    }
+    .modal-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      .cancel-button {
+        border: none;
+        background-color: transparent;
+        color: #999999;
+        font-size: 16px;
+        margin-right: 20px;
+        cursor: pointer;
+      }
+      .confirm-button {
+        border: none;
+        background-color: #0099ff;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}
