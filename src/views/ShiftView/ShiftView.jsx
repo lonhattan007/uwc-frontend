@@ -31,8 +31,8 @@ const ShiftView = () => {
   const containerDateRef1 = useRef();
   const dateValue = useRef('');
   const dateValue1 = useRef('');
-  const lableFromDateRef = useRef(null);
-  const lableToDateRef = useRef(null);
+  const labelFromDateRef = useRef(null);
+  const labelToDateRef = useRef(null);
   const [showNewShiftModal, setShowNewShiftModal] = useState(false);
 
   const handleSelect = (event) => {
@@ -47,16 +47,16 @@ const ShiftView = () => {
   useEffect(() => {
     let divElement = containerDateRef.current;
     let inputElement = divElement.querySelector('input');
-    let lableRef = lableFromDateRef.current;
+    let labelRef = labelFromDateRef.current;
     const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
     const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
 
     const handleFocus = () => {
       if (isValidDate(inputElement.value)) {
-        lableRef.style.color = 'rgba(1, 130, 65, 1)';
+        labelRef.style.color = 'rgba(1, 130, 65, 1)';
         divElement.style.boxShadow = validColor;
       } else {
-        lableRef.style.color = 'rgba(220, 20, 60, 1)';
+        labelRef.style.color = 'rgba(220, 20, 60, 1)';
         divElement.style.boxShadow = invalidColor;
       }
     };
@@ -64,13 +64,13 @@ const ShiftView = () => {
     const handleFocusOut = () => {
       if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
         divElement.style.boxShadow = validColor;
-        lableRef.style.color = 'rgba(1, 130, 65, 1)';
+        labelRef.style.color = 'rgba(1, 130, 65, 1)';
       } else if (inputElement.value === '') {
         divElement.style.boxShadow = '0 0 0 1px rgba(111, 105, 105, 0.5)';
-        lableRef.style.color = 'rgba(111, 105, 105, 0.5)';
+        labelRef.style.color = 'rgba(111, 105, 105, 0.5)';
       } else {
         divElement.style.boxShadow = invalidColor;
-        lableRef.style.color = 'rgba(220, 20, 60, 1)';
+        labelRef.style.color = 'rgba(220, 20, 60, 1)';
       }
     };
 
@@ -90,7 +90,7 @@ const ShiftView = () => {
     let inputElement1 = divElement1.querySelector('input');
     const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
     const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
-    const labelRef1 = lableToDateRef.current;
+    const labelRef1 = labelToDateRef.current;
 
     const handleFocus1 = () => {
       if (isValidDate(inputElement1.value)) {
@@ -268,7 +268,7 @@ const ShiftView = () => {
                 <div className={cx('filter-option')}>
                   <div className={cx('filter-input')} ref={containerDateRef}>
                     <div className={cx('input-container')}>
-                      <label htmlFor="fromDate" ref={lableFromDateRef}>
+                      <label htmlFor="fromDate" ref={labelFromDateRef}>
                         Từ ngày
                       </label>
                       <input
@@ -288,7 +288,7 @@ const ShiftView = () => {
                   </div>
                   <div className={cx('filter-input')} ref={containerDateRef1}>
                     <div className={cx('input-container')}>
-                      <label htmlFor="toDate" ref={lableToDateRef}>
+                      <label htmlFor="toDate" ref={labelToDateRef}>
                         Đến ngày
                       </label>
                       <input

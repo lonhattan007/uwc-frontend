@@ -49,11 +49,11 @@ const router = createBrowserRouter([
     element: <StaffView />,
   },
   {
-    path: '/taskassign1',
+    path: '/task-assign-1',
     element: <TaskAssignView1 />,
   },
   {
-    path: '/taskassign2',
+    path: '/task-assign-2',
     element: <TaskAssignView2 />,
   },
   {
