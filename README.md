@@ -70,7 +70,7 @@ uwc-frontent/
 |   |   |__ ...
 |   |__ views/..................... - page-level components
 |   |   |__ ViewA/
-|   |   |   |__ PageA.jsx
+|   |   |   |__ ViewA.jsx
 |   |   |   |__ SubComponentB.jsx
 |   |   |   |__ ViewA.scss
 |   |   |   |__ ...

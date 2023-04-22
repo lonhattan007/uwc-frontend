@@ -1,8 +1,42 @@
 import { useRef, useState, forwardRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
+import viLocale from '@fullcalendar/core/locales/vi';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
+const DateCell = ({ date, setSelectedDate }) => {
+  return (
+    <div className="day-cell">
+      <div className="day-number">{date.getDate()}</div>
+      {date.toDateString() === new Date().toDateString() && (
+        <div className="note">
+          <>
+            <span>Số nhiệm vụ: 6</span>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>Hoàn thành: 0</span>
+            </div>
+          </>
+        </div>
+      )}
+      <div className="add-icon" onClick={() => setSelectedDate(date)}>
+        <FontAwesomeIcon icon={faPlus} />
+      </div>
+    </div>
+  );
+};
+
+const CalendarForm = () => {
+  return (
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="note">Ghi chú:</label>
+        <textarea id="note" name="note" ref={noteRef} />
+        <button type="submit">Thêm ghi chú</button>
+      </form>
+    </div>
+  );
+};
 
 const CalendarViewContent = () => {
   const [showForm, setShowForm] = useState(false);
@@ -15,8 +49,8 @@ const CalendarViewContent = () => {
     setShowForm(true);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const note = noteRef.current.value;
     const eventObj = {
       title: note,
@@ -26,42 +60,19 @@ const CalendarViewContent = () => {
     calendarRef.current.getApi().addEvent(eventObj);
     setShowForm(false);
   };
-  console.log(showForm);
+
   return (
     <div className="calendar">
       <FullCalendar
         ref={calendarRef}
         plugins={[dayGridPlugin]}
         select={handleSelect}
-        dayCellContent={({ date }) => (
-          <div className="day-cell">
-            <div className="day-number">{date.getDate()}</div>
-            {date.toDateString() === new Date().toDateString() && (
-              <div className="note">
-                <p>
-                  <span>Số nhiệm vụ: 6</span>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span>Hoàn thành: 0</span>
-                  </div>
-                </p>
-              </div>
-            )}
-            <div className="add-icon" onClick={() => setSelectedDate(date)}>
-              <FontAwesomeIcon icon={faPlus} />
-            </div>
-          </div>
-        )}
+        locale={viLocale}
+        showNonCurrentDates={false}
+        dayCellContent={({ date }) => <DateCell date={date} setSelectedDate={setSelectedDate} />}
       />
 
-      {showForm && (
-        <div className="form-container">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="note">Note:</label>
-            <textarea id="note" name="note" ref={noteRef} />
-            <button type="submit">Add note</button>
-          </form>
-        </div>
-      )}
+      {showForm && <CalendarForm />}
     </div>
   );
 };

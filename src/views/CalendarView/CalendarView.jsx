@@ -5,12 +5,13 @@ import './CalendarView.scss';
 
 const CalendarView = () => {
   return (
-    <div style={{ width: '100%', display: 'flex' }}>
+    <>
       <Sidebar />
-      <div style={{ flex: 1 }}>
+      <div id="workspace">
         <CalendarViewContent />
       </div>
-    </div>
+    </>
   );
 };
+
 export default CalendarView;

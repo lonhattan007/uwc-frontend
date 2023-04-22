@@ -1,16 +1,23 @@
+@import '@styles/theme.scss';
+
 .calendar {
   width: 80%;
   height: 100vh;
   margin: auto;
-  // display: flex;
+  overflow: scroll;
+  justify-content: center;
 }
 
 .fc {
   height: 90%;
+  margin-top: 2%;
+  overflow: scroll !important;
 }
+
 .fc-daygrid-day-number {
   width: 100%;
 }
+
 .day-cell {
   display: flex;
   flex-direction: row;
@@ -23,36 +30,64 @@
 /* .fc-scrollgrid-sync-inner {
     height: 40px;
   } */
+
 .fc-col-header-cell-cushion {
   font-size: 20px;
   line-height: 200%;
   font-weight: bold;
   color: #666;
 }
+
 .fc-col-header-cell-cushion a {
   text-decoration: none;
 }
+
+.fc-col-header-cell {
+  background-color: transparent !important;
+
+  .fc-col-header-cell-cushion {
+    color: $text-color;
+    font-weight: 300;
+  }
+}
+
 /* .fc-button-group {
     position: relative;
     top: 700px;
     right: 50px;
   } */
+
 .fc-toolbar-chunk {
   position: relative;
   top: 15px;
 }
+
+.fc-toolbar-title {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.fc-scrollgrid-section {
+  th {
+    background-color: transparent;
+  }
+}
+
 .form-container {
   display: block;
 }
+
 .backgr-icon {
   /* margin-top: 5px; */
   text-align: right;
   width: 50%;
   display: flex;
 }
+
 .leftcontent {
   width: 80%;
 }
+
 .add-icon {
   /* text-align: right; */
   border-radius: 50%;
@@ -68,6 +103,7 @@
   margin: 5px;
   cursor: pointer;
 }
+
 .day-number {
   /* margin-bottom: 5px; */
   width: 50%;
@@ -75,6 +111,7 @@
   font-size: 18px;
   text-decoration: none;
 }
+
 .day-cell {
   position: relative;
 }

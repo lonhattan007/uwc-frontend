@@ -1,6 +1,8 @@
+@import '@styles/theme.scss';
+
 .container {
-  position: relative;
-  right: 0;
+  flex: 1;
+  margin-top: 2%;
   width: 80%;
 }
 
@@ -19,7 +21,7 @@
 }
 
 h1 {
-  color: #000;
+  color: $text-color-dark;
 }
 
 .new-shift-button {

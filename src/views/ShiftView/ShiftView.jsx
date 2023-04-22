@@ -13,7 +13,6 @@ import isDateInRange from './utils/rangeDateChecking';
 import getCurrentDate from './utils/getCurrentDate';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './ShiftView.module.scss';
 
 import { shiftData } from '@mocks/shifts';

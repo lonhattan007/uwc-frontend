@@ -45,7 +45,6 @@ const Sidebar = () => {
         id="sidebar-container"
         className="sidebar"
         textColor="#fff"
-        backgroundColor="#1e1e2e"
         toggled={window.innerWidth <= toggleBreakpoint}
         breakpoint={toggleBreakpoint}
       >

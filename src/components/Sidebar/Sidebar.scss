@@ -1,12 +1,15 @@
+@import '@styles/theme.scss';
+
 @mixin selected-option {
   color: #fff !important;
-  background-color: #5d5a88 !important;
+  background-color: $sidebar-selected-item !important;
   border-radius: 10px;
 }
 
 #sidebar-container {
   height: 100vh;
   overflow: hidden;
+  background-color: $sidebar-background;
 }
 
 .sidebar {
