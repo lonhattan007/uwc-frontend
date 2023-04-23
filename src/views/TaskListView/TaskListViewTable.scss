@@ -34,7 +34,7 @@ table {
 
   .btn-container {
     width: fit-content;
-    padding: 0 cal($radius / 2);
+    padding: 0 calc($radius / 2);
     margin: auto;
     border-radius: $radius;
     background-color: $primary-color !important;

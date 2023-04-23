@@ -1,7 +1,7 @@
 import { CDBSidebarMenuItem } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 
-const SidebarItem = ({ route, icon, title, active, onClick, key }) => {
+const SidebarItem = ({ route, icon, title, active, onClick }) => {
   return (
     <NavLink to={'/' + route} onClick={onClick}>
       <CDBSidebarMenuItem icon={icon} active={active}>

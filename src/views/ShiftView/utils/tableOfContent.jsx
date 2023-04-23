@@ -7,6 +7,7 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 import styles from './table.module.scss';
 import paginationRange from './pageRange';
 import DropdownMenu from './dropDownMenu';
+import { NavLink } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -145,9 +146,10 @@ function ShiftTable({ shiftData }) {
                 <td>{shift.taskNumber}</td>
                 <td>{shift.completedTask}</td>
                 <td>
+                  <NavLink to="/tasks">
                   <div className={cx('button-container')}>
                     <Button className={cx('show-btn')}>Chi tiết</Button>
-                  </div>
+                  </div></NavLink>
                 </td>
                 <td
                   className={index === lastRowIndex ? cx('xxx') : ''}

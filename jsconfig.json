@@ -8,7 +8,8 @@
       "@mocks/*": ["./mocks/*"],
       "@styles/*": ["./src/scss/*"],
       "@stores/*": ["./src/stores/*"],
-      "@routes/*": ["./src/routes/*"]
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

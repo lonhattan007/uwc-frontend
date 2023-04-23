@@ -15,6 +15,7 @@ export default defineConfig({
       '@styles': path.resolve((__dirname, './src/scss')),
       '@stores': path.resolve((__dirname, './src/stores')),
       '@routes': path.resolve((__dirname, './src/routes')),
+      '@utils': path.resolve((__dirname, './src/utils')),
     },
   },
   test: {

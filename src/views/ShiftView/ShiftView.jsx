@@ -24,6 +24,7 @@ const cx = classNames.bind(styles);
 const ShiftView = () => {
   const [selectedOption, setSelectedOption] = useState(''); // state for selected option
   const [fillShiftData, setFillShiftData] = useState(shiftData);
+  const [modal, setModal] = useState(false);
   const inputDateRef = useRef();
   const startDateContainerRef = useRef();
   const endDateContainerRef = useRef();
@@ -31,7 +32,6 @@ const ShiftView = () => {
   const endDateValue = useRef('');
   const startDateLabelRef = useRef(null);
   const endDateLabelRef = useRef(null);
-  const [showNewShiftModal, setShowNewShiftModal] = useState(false);
 
   const handleSelect = (event) => {
     // update selected option state
@@ -154,11 +154,8 @@ const ShiftView = () => {
     }
   };
 
-  const handleNewShiftClick = () => {
-    setShowNewShiftModal(true);
-  };
-  const handleCancel = () => {
-    setShowNewShiftModal(false);
+  const toggleModal = () => {
+    setModal(!modal);
   };
 
   return (
@@ -168,13 +165,11 @@ const ShiftView = () => {
         <div className={cx('header')}>
           <div className={cx('inner')}>
             <h1 className={cx('title')}>Danh sách ca</h1>
-            <button className={cx('new-shift-button')} onClick={handleNewShiftClick}>
+            <button className={cx('new-shift-button')} onClick={toggleModal}>
               <FontAwesomeIcon icon={faCirclePlus} />
               Tạo ca mới
             </button>
-            {showNewShiftModal && (
-              <AddShiftModal setShowNewShiftModal={setShowNewShiftModal} handleCancel={handleCancel} />
-            )}
+            <AddShiftModal isOpen={modal} toggle={toggleModal} />
           </div>
         </div>
         <div className={cx('content')}>

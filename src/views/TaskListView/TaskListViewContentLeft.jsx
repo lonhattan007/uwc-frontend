@@ -6,7 +6,6 @@ const TaskListViewContentLeft = (props) => {
     backgroundColor: '#fff',
     margin: '0 2rem',
     padding: '0.5rem 1rem',
-    borderRadius: '25px',
   };
   const infoShift_h5 = {
     textAlign: 'start',
@@ -45,7 +44,7 @@ const TaskListViewContentLeft = (props) => {
   };
 
   return (
-    <div style={TaskListView_Content_Left}>
+    <div className="card-info-item" style={TaskListView_Content_Left}>
       <h5 style={infoShift_h5}>
         <a href="#" style={infoShift_a}>
           <FaArrowLeft />

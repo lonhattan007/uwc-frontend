@@ -1,27 +1,28 @@
-import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
-import Routing from './FindRoute';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import 'leaflet/dist/leaflet.css';
-import './style.scss';
+import Routing from './FindRoute';
 
-const VITE_USERNAME = 'thanhtuancsk20';
-const VITE_STYLE_ID = 'clgfhviyf001v01qtabbzghph';
-const VITE_ACCESS_TOKEN =
-  'pk.eyJ1IjoidGhhbmh0dWFuY3NrMjAiLCJhIjoiY2xnZm5rbnJ2MDJvbjNvbGJjdWhkOWNlNyJ9.m3OiisbsTj-e43EomRdqfA';
+// import '@utils/dotenv';
+
+import './Mapbox.scss';
+
+const VITE_USERNAME = import.meta.env.VITE_USERNAME;
+const VITE_STYLE_ID = import.meta.env.VITE_STYLE_ID;
+const VITE_ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN;
+
 const Mapbox = () => {
   const position = [10.880758675454759, 106.80538629714444];
+
   return (
     <div className="Mapbox">
       <div className="header">
-        <a href="">
+        {/* <a href="">
           <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
         </a>
         <a className="go-back" href="/">
           Quay lại
-        </a>
+        </a> */}
       </div>
       <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ minHeight: '75vh', minWidth: '75vw' }}>
         <TileLayer

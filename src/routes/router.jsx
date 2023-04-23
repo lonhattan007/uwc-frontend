@@ -1,6 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 
-import MainPage from '@views/main';
 import LoginView from '@views/LoginView';
 import ForgotPassView from '@views/ForgotPassView';
 import CalendarView from '@views/CalendarView';
@@ -9,7 +8,7 @@ import StaffView from '@views/StaffView';
 import { TaskAssignView1, TaskAssignView2 } from '@views/TaskAssignView';
 import TaskListView from '@views/TaskListView/TaskListView';
 import TaskView from '@views/TaskView';
-import Mapbox from '@components/Mapbox/Mapbox';
+import DepotsView from '@views/DepotsView';
 
 const AuthProxy = ({ element }) => {
   return localStorage.userLoggedIn === 'true' ? element : <Navigate to={'/login'} />;
@@ -46,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/collecting-sites',
-    element: <Mapbox />,
+    element: <DepotsView />,
   },
   {
     path: '/staffs',
