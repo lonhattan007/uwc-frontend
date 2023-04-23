@@ -11,8 +11,13 @@ const SIDEBAR_ITEMS = [
   },
   {
     route: 'shifts',
+    icon: 'clock',
+    title: 'Ca trực',
+  },
+  {
+    route: 'tasks',
     icon: 'tasks',
-    title: 'Ca và nhiệm vụ',
+    title: 'Nhiệm vụ',
   },
   {
     route: 'collecting-sites',

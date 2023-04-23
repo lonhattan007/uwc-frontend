@@ -36,7 +36,7 @@ const TaskListViewHeader = () => {
     <div style={TaskListView_Header}>
       <h2 style={h2}>Danh sách nhiệm vụ</h2>
       <button style={TaskListView_Header_button}>
-        <a href="#" style={TaskListView_Header_button_a}>
+        <a href="/task-assign-1" style={TaskListView_Header_button_a}>
           <FaPlus style={plus} />
           Tạo nhiệm vụ mới
         </a>

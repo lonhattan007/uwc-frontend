@@ -1,0 +1,54 @@
+@import '@styles/theme.scss';
+
+$radius: 20px;
+
+.table-container {
+  width: 90%;
+  margin: auto;
+  background-color: $text-color-light;
+  border-radius: $radius !important;
+  // overflow: hidden;
+}
+
+table {
+  padding: 0%;
+  margin: auto;
+
+  td {
+    vertical-align: middle;
+  }
+  
+  .table-head-row {
+    background-color: $primary-color;
+    color: $text-color-light;
+    width: 100%;
+  }
+
+  .even-row {
+    background-color: $primary-color-200;
+  }
+
+  .odd-row {
+    background-color: $text-color-light;
+  }
+
+  .btn-container {
+    width: fit-content;
+    padding: 0 cal($radius / 2);
+    margin: auto;
+    border-radius: $radius;
+    background-color: $primary-color !important;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: $primary-color-hover !important;
+      color: $text-color-light;
+    }
+  }
+
+  .task-show-btn {
+    background-color: transparent !important;
+    color: $text-color-light;
+    border: 0;
+  }
+}
