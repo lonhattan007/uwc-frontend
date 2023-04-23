@@ -3,12 +3,12 @@ import StaffViewContent from './StaffViewContent';
 
 const StaffView = () => {
   return (
-    <div className="container row">
+    <>
       <Sidebar />
-      <div>
+      <div id="workspace">
         <StaffViewContent />
       </div>
-    </div>
+    </>
   );
 };
 

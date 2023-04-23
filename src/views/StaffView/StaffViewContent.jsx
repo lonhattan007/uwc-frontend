@@ -7,7 +7,7 @@ import './StaffViewContent.scss';
 const StaffViewContent = () => {
   const [chosen, setChosen] = useState(0);
   return (
-    <div>
+    <>
       <div className="grid-container">
         <div className="grid-item">
           <h3>Nhân viên</h3>
@@ -22,11 +22,11 @@ const StaffViewContent = () => {
           ))}
         </div>
         <div className="grid-item">
-          <h3> Thông tin của {staffData[chosen].name}</h3>
+          <h3>{staffData[chosen].name}</h3>
           <StaffInfo data={staffData[chosen]} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

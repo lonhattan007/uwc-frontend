@@ -2,16 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDay, faCirclePlus, faFilter } from '@fortawesome/free-solid-svg-icons';
-import { Container, Form } from 'react-bootstrap';
+import { faCirclePlus, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { Form } from 'react-bootstrap';
 import Sidebar from '@components/Sidebar/Sidebar';
-import DatePickerComponent from './utils/datePicker';
+import getCurrentDate from './utils/getCurrentDate';
+
 import isValidDate from './utils/isValidDate';
 import ShiftTable from './utils/tableOfContent';
 import compareTwoDate from './utils/compare2Date';
 import isDateInRange from './utils/rangeDateChecking';
-import getCurrentDate from './utils/getCurrentDate';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
+import DateFilter from './DateFilter';
+import AddShiftModal from '@components/AddShiftModal';
 
 import styles from './ShiftView.module.scss';
 
@@ -21,18 +23,14 @@ const cx = classNames.bind(styles);
 
 const ShiftView = () => {
   const [selectedOption, setSelectedOption] = useState(''); // state for selected option
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [showDatePicker1, setShowDatePicker1] = useState(false);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedDate1, setSelectedDate1] = useState('');
   const [fillShiftData, setFillShiftData] = useState(shiftData);
   const inputDateRef = useRef();
-  const containerDateRef = useRef();
-  const containerDateRef1 = useRef();
-  const dateValue = useRef('');
-  const dateValue1 = useRef('');
-  const labelFromDateRef = useRef(null);
-  const labelToDateRef = useRef(null);
+  const startDateContainerRef = useRef();
+  const endDateContainerRef = useRef();
+  const startDateValue = useRef('');
+  const endDateValue = useRef('');
+  const startDateLabelRef = useRef(null);
+  const endDateLabelRef = useRef(null);
   const [showNewShiftModal, setShowNewShiftModal] = useState(false);
 
   const handleSelect = (event) => {
@@ -42,12 +40,12 @@ const ShiftView = () => {
 
   useEffect(() => {
     handleFilter();
-  }, [dateValue.current, dateValue1.current, selectedOption]);
+  }, [startDateValue.current, endDateValue.current, selectedOption]);
 
   useEffect(() => {
-    let divElement = containerDateRef.current;
+    let divElement = startDateContainerRef.current;
     let inputElement = divElement.querySelector('input');
-    let labelRef = labelFromDateRef.current;
+    let labelRef = startDateLabelRef.current;
     const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
     const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
 
@@ -62,7 +60,7 @@ const ShiftView = () => {
     };
 
     const handleFocusOut = () => {
-      if (isValidDate(inputElement.value) || isValidDate(dateValue.current)) {
+      if (isValidDate(inputElement.value) || isValidDate(startDateValue.current)) {
         divElement.style.boxShadow = validColor;
         labelRef.style.color = 'rgba(1, 130, 65, 1)';
       } else if (inputElement.value === '') {
@@ -86,11 +84,11 @@ const ShiftView = () => {
   }, []);
 
   useEffect(() => {
-    let divElement1 = containerDateRef1.current;
+    let divElement1 = endDateContainerRef.current;
     let inputElement1 = divElement1.querySelector('input');
     const validColor = '0 0 0 2px rgba(1, 130, 65, 1)';
     const invalidColor = '0 0 0 2px rgba(220, 20, 60, 1)';
-    const labelRef1 = labelToDateRef.current;
+    const labelRef1 = endDateLabelRef.current;
 
     const handleFocus1 = () => {
       if (isValidDate(inputElement1.value)) {
@@ -103,7 +101,7 @@ const ShiftView = () => {
     };
 
     const handleFocusOut1 = () => {
-      if (isValidDate(inputElement1.value) || isValidDate(dateValue1.current)) {
+      if (isValidDate(inputElement1.value) || isValidDate(endDateValue.current)) {
         divElement1.style.boxShadow = validColor;
         labelRef1.style.color = 'rgba(1, 130, 65, 1)';
       } else if (inputElement1.value === '') {
@@ -132,53 +130,17 @@ const ShiftView = () => {
     { value: 'Đã kết thúc', label: 'Đã kết thúc' },
   ];
 
-  const handleCalendarClick = () => {
-    setShowDatePicker(!showDatePicker);
-  };
-
-  const handleCalendarClick1 = () => {
-    setShowDatePicker1(!showDatePicker1);
-  };
-
-  const handleDateChange = (value) => {
-    if (typeof value === 'object') {
-      value = value.toLocaleDateString('en-GB');
-    }
-    if (isValidDate(value)) {
-      dateValue.current = value;
-      setSelectedDate(value);
-    } else {
-      dateValue.current = '';
-      setSelectedDate(value);
-    }
-    setShowDatePicker(false);
-  };
-
-  const handleDateChange1 = (value) => {
-    if (typeof value === 'object') {
-      value = value.toLocaleDateString('en-GB');
-    }
-    if (isValidDate(value)) {
-      dateValue1.current = value;
-      setSelectedDate1(value);
-    } else {
-      dateValue1.current = '';
-      setSelectedDate1(value);
-    }
-    setShowDatePicker1(false);
-  };
-
   const handleFilter = () => {
     const data = shiftData;
 
-    if (dateValue.current === '' && dateValue1.current === '' && selectedOption === '') {
+    if (startDateValue.current === '' && endDateValue.current === '' && selectedOption === '') {
       setFillShiftData(data);
-    } else if (dateValue.current === '' && dateValue1.current === '') {
+    } else if (startDateValue.current === '' && endDateValue.current === '') {
       const filteredData = data.filter((shift) => shift.status === selectedOption);
       setFillShiftData(filteredData);
     } else {
-      const fromDate = dateValue.current === '' ? getCurrentDate() : dateValue.current;
-      const toDate = dateValue1.current === '' ? getCurrentDate() : dateValue1.current;
+      const fromDate = startDateValue.current === '' ? getCurrentDate() : startDateValue.current;
+      const toDate = endDateValue.current === '' ? getCurrentDate() : endDateValue.current;
 
       if (selectedOption === '') {
         const filteredData = data.filter((shift) => isDateInRange(shift.date, fromDate, toDate));
@@ -211,47 +173,7 @@ const ShiftView = () => {
               Tạo ca mới
             </button>
             {showNewShiftModal && (
-              <div className={cx('new-shift-modal')}>
-                <div className={cx('modal-inner')}>
-                  <div className={cx('modal-header')}>
-                    <h2 className={cx('modal-title')}>Tạo ca mới</h2>
-                    <button className={cx('close-button')} onClick={() => setShowNewShiftModal(false)}>
-                      <FontAwesomeIcon icon={faTimes} />
-                    </button>
-                  </div>
-                  <div className={cx('modal-body')}>
-                    <div className={cx('input-group')}>
-                      <label htmlFor="start-time-input">Giờ bắt đầu:</label>
-                      <input type="time" id="start-time-input" />
-                    </div>
-                    <div className={cx('input-group')}>
-                      <label htmlFor="end-time-input">Giờ kết thúc:</label>
-                      <input type="time" id="end-time-input" />
-                    </div>
-                    <div className={cx('input-group')}>
-                      <label htmlFor="status-input">Trạng thái:</label>
-                      <select id="status-input">
-                        <option value="available">Chưa diễn ra</option>
-                        <option value="unavailable">Đã diễn ra</option>
-                        <option value="unavailable">Kết thúc</option>
-                      </select>
-                    </div>
-                    <div className={cx('input-group')}>
-                      <label htmlFor="date-input">Ngày:</label>
-                      <input type="date" id="date-input" />
-                    </div>
-                  </div>
-                  <div className={cx('modal-footer')}>
-                    <button className={cx('cancel-button')} onClick={handleCancel}>
-                      Hủy bỏ
-                    </button>
-
-                    <button className={cx('confirm-button')} onClick={handleCancel}>
-                      Xác nhận
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <AddShiftModal setShowNewShiftModal={setShowNewShiftModal} handleCancel={handleCancel} />
             )}
           </div>
         </div>
@@ -266,46 +188,18 @@ const ShiftView = () => {
               </div>
               <div className={cx('filter')}>
                 <div className={cx('filter-option')}>
-                  <div className={cx('filter-input')} ref={containerDateRef}>
-                    <div className={cx('input-container')}>
-                      <label htmlFor="fromDate" ref={labelFromDateRef}>
-                        Từ ngày
-                      </label>
-                      <input
-                        id="fromDate"
-                        ref={inputDateRef}
-                        type="text"
-                        placeholder={getCurrentDate()}
-                        className={cx('date-input')}
-                        value={selectedDate ? selectedDate : ''}
-                        onChange={(e) => handleDateChange(e.target.value)}
-                      />
-                    </div>
-                    <div className={cx('icon-container')} onClick={handleCalendarClick}>
-                      <FontAwesomeIcon icon={faCalendarDay} />
-                    </div>
-                    {showDatePicker && <DatePickerComponent onSelectDate={handleDateChange} />}
-                  </div>
-                  <div className={cx('filter-input')} ref={containerDateRef1}>
-                    <div className={cx('input-container')}>
-                      <label htmlFor="toDate" ref={labelToDateRef}>
-                        Đến ngày
-                      </label>
-                      <input
-                        id="toDate"
-                        ref={inputDateRef}
-                        type="text"
-                        placeholder={getCurrentDate()}
-                        className={cx('date-input')}
-                        value={selectedDate1 ? selectedDate1 : ''}
-                        onChange={(e) => handleDateChange1(e.target.value)}
-                      />
-                    </div>
-                    <div className={cx('icon-container')} onClick={handleCalendarClick1}>
-                      <FontAwesomeIcon icon={faCalendarDay} />
-                    </div>
-                    {showDatePicker1 && <DatePickerComponent onSelectDate={handleDateChange1} />}
-                  </div>
+                  <DateFilter
+                    fromDate={true}
+                    containerDateRef={startDateContainerRef}
+                    labelDateRef={startDateLabelRef}
+                    inputDateRef={inputDateRef}
+                  />
+                  <DateFilter
+                    fromDate={false}
+                    containerDateRef={endDateContainerRef}
+                    labelDateRef={endDateLabelRef}
+                    inputDateRef={inputDateRef}
+                  />
                 </div>
                 <div className={cx('filter-second-date')}>
                   <div className={cx('filter-input')}>

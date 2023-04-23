@@ -147,8 +147,6 @@ const Content = () => {
       <div className="header">
         <a href="">
           <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
-        </a>
-        <a className="go-back" href="https://www.useblackbox.io/search">
           Quay lại
         </a>
       </div>
@@ -167,7 +165,7 @@ const Content = () => {
           <VehicleList />
           <Driverlist />
         </div>
-        <Link to="/taskassign2">
+        <Link to="/task-assign-2">
           <button className="button-1">Tiếp Theo</button>
         </Link>
       </div>

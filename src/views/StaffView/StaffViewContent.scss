@@ -1,12 +1,13 @@
+@import '@styles/theme.scss';
+
 $color_1: transparent;
 $color_2: black;
 $background-color_1: #f3f3f3;
 
 .grid-container {
-  position: fixed;
-  top: 12%;
-  left: 18%;
-  width: 80%;
+  flex: 1;
+  width: 96%;
+  margin: 2%;
   height: 75%;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -20,9 +21,7 @@ $background-color_1: #f3f3f3;
   > h3 {
     height: 7%;
     font-weight: 700px;
-    background-image: linear-gradient(90deg, rgba(0, 255, 0, 1), rgba(0, 128, 0, 1));
-    color: $color_1;
-    -webkit-background-clip: text;
+    color: $text-color-dark;
   }
 }
 .button {

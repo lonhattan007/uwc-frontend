@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Table, Pagination } from 'react-bootstrap';
+import { Table, Pagination, Button } from 'react-bootstrap';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
@@ -146,7 +146,7 @@ function ShiftTable({ shiftData }) {
                 <td>{shift.completedTask}</td>
                 <td>
                   <div className={cx('button-container')}>
-                    <button className={cx('show-btn')}>Chi tiết</button>
+                    <Button className={cx('show-btn')}>Chi tiết</Button>
                   </div>
                 </td>
                 <td

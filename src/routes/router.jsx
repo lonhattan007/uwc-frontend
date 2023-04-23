@@ -11,10 +11,14 @@ import TaskListView from '@views/TaskListView/TaskListView';
 import TaskView from '@views/TaskView';
 import Mapbox from '@components/Mapbox/Mapbox';
 
+const AuthProxy = ({ element }) => {
+  return localStorage.userLoggedIn === 'true' ? element : <Navigate to={'/login'} />;
+};
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to={localStorage.userLoggedIn === 'true' ? '/calendar' : '/login'} />,
+    element: <AuthProxy element={<CalendarView />} />,
   },
   {
     path: '/login',
@@ -26,19 +30,19 @@ const router = createBrowserRouter([
   },
   {
     path: '/calendar',
-    element: <CalendarView />,
+    element: <AuthProxy element={<CalendarView />} />,
   },
   {
     path: '/shifts',
-    element: <ShiftView />,
+    element: <AuthProxy element={<ShiftView />} />,
   },
   {
     path: '/tasks',
-    element: <TaskListView />,
+    element: <AuthProxy element={<TaskListView />} />,
   },
   {
     path: '/tasks/task',
-    element: <TaskView />,
+    element: <AuthProxy element={<TaskView />} />,
   },
   {
     path: '/collecting-sites',
@@ -46,15 +50,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/staffs',
-    element: <StaffView />,
+    element: <AuthProxy element={<StaffView />} />,
   },
   {
     path: '/task-assign-1',
-    element: <TaskAssignView1 />,
+    element: <AuthProxy element={<TaskAssignView1 />} />,
   },
   {
     path: '/task-assign-2',
-    element: <TaskAssignView2 />,
+    element: <AuthProxy element={<TaskAssignView2 />} />,
   },
   {
     path: '/forgot',

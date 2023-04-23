@@ -81,13 +81,11 @@ const Content = () => {
   return (
     <>
       <div className="header">
-        <Link to="/taskassign1">
-          <a href="">
+        <Link to="/task-assign-1">
+          <span>
             <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
-          </a>
-          <a className="go-back" href="">
-            Quay lại
-          </a>
+            <h3>Quay lại</h3>
+          </span>
         </Link>
       </div>
       <div className="container-content">
