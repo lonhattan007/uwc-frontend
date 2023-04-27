@@ -2,11 +2,17 @@
 
 #workspace {
   width: 100%;
+  padding: 5%;
   height: 100vh;
-  background-color: #f2f2f2;
+  background-color: #f3f3f3;
   overflow: scroll;
   display: flex;
   flex: 1;
+}
+
+.container {
+  width: 80%;
+  margin: auto !important;
 }
 
 .card-info-item {

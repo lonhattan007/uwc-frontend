@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import { faPerson } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './TaskAssign.scss';
 
@@ -145,10 +145,9 @@ const Content = () => {
   return (
     <>
       <div className="header">
-        <a href="">
+        <NavLink to="/tasks">
           <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
-          Quay lại
-        </a>
+        </NavLink>
       </div>
       <div className="container-content">
         <div className="section-first">

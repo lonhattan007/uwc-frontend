@@ -1,0 +1,32 @@
+@import '@styles/theme.scss';
+$radius: 20px;
+
+.task-list-view-header {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 2% 5%;
+  
+  .btn-container {
+    width: fit-content;
+    padding: 0 calc($radius / 2);
+    margin: auto 0 auto auto;
+    // align-self: self-end;
+    align-items: baseline;
+    vertical-align: middle;
+    border-radius: $radius;
+    background-color: $primary-color !important;
+    color: $text-color-light;
+
+    &:hover {
+      background-color: $primary-color-hover !important;
+      color: $text-color-light;
+    }
+  }
+
+  .add-task-btn {
+    background-color: transparent !important;
+    color: $text-color-light;
+    border: 0;
+  }
+}

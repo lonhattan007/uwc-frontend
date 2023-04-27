@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Select from 'react-select';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './TaskAssign.scss';
 
@@ -77,16 +77,14 @@ const Content = () => {
   };
   const handleButtonClick = () => {
     alert('Completed!!!');
+    window.location.assign("/tasks")
   };
   return (
     <>
       <div className="header">
-        <Link to="/task-assign-1">
-          <span>
-            <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
-            <h3>Quay lại</h3>
-          </span>
-        </Link>
+        <NavLink to="/task-assign-1">
+          <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
+        </NavLink>
       </div>
       <div className="container-content">
         <div className="section-first">

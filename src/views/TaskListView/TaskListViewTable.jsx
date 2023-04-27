@@ -2,6 +2,7 @@ import { FaEllipsisV } from 'react-icons/fa';
 import { Table, Button } from 'react-bootstrap';
 
 import './TaskListViewTable.scss';
+import { NavLink } from 'react-router-dom';
 
 const tasks = [
   {
@@ -58,9 +59,11 @@ const TaskListViewTable = () => {
             <td>{task.route}</td>
             <td>
               <div className="btn-container">
-                <Button className="task-show-btn" color="success">
-                  Chi tiết
-                </Button>
+                <NavLink to="task">
+                  <Button className="task-show-btn" color="success">
+                    Chi tiết
+                  </Button>
+                </NavLink>
               </div>
             </td>
             <td>

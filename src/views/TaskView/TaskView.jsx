@@ -1,7 +1,7 @@
 import Sidebar from '@components/Sidebar/Sidebar';
 import TaskInfo from './TaskInfo';
 import TasksTable from './TasksTable';
-import React from 'react';
+import { Container, Row } from 'reactstrap';
 import './TaskView.scss';
 
 const TaskView = () => {
@@ -14,9 +14,15 @@ const TaskView = () => {
   return (
     <>
       <Sidebar />
-      <div style={{ TaskView }}>
-        <TaskInfo />
-        <TasksTable />
+      <div id="workspace">
+        <Container>
+          <Row>
+            <TaskInfo />
+          </Row>
+          <Row>
+            <TasksTable />
+          </Row>
+        </Container>
       </div>
     </>
   );

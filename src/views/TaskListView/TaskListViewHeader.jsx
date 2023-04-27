@@ -1,4 +1,8 @@
 import { FaPlus } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
+import './TaskListViewHeader.scss';
 
 const TaskListViewHeader = () => {
   const TaskListView_Header = {
@@ -6,24 +10,12 @@ const TaskListViewHeader = () => {
     margin: '0rem 2rem',
     width: '100%',
   };
+  
   const h2 = {
     margin: '1rem',
   };
-  const TaskListView_Header_button = {
-    height: '3rem',
-    margin: '1rem',
-    lineHeight: '1.5rem',
-    width: '20%',
-    borderRadius: '30rem',
-    marginLeft: '2.5rem',
-    backgroundColor: '#018241',
-    textDecoration: 'none',
-  };
-  const TaskListView_Header_button_a = {
-    textDecoration: 'none',
-    fontSize: '21px',
-    color: '#fff',
-  };
+ 
+
   const plus = {
     width: '2rem',
     height: '2rem',
@@ -32,15 +24,18 @@ const TaskListViewHeader = () => {
     borderRadius: '50%',
     marginRight: '1rem',
   };
+
   return (
-    <div style={TaskListView_Header}>
+    <div className='task-list-view-header'>
       <h2 style={h2}>Danh sách nhiệm vụ</h2>
-      <button style={TaskListView_Header_button}>
-        <a href="/task-assign-1" style={TaskListView_Header_button_a}>
-          <FaPlus style={plus} />
-          Tạo nhiệm vụ mới
-        </a>
-      </button>
+      <div className="btn-container">
+        <NavLink to="/task-assign-1">
+          <Button className='add-task-btn'>
+            <FaPlus style={plus} />
+            Tạo nhiệm vụ mới
+          </Button>
+        </NavLink>
+      </div>
     </div>
   );
 };

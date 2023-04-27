@@ -3,8 +3,6 @@ import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import 'leaflet/dist/leaflet.css';
 import Routing from './FindRoute';
 
-// import '@utils/dotenv';
-
 import './Mapbox.scss';
 
 const VITE_USERNAME = import.meta.env.VITE_USERNAME;
@@ -16,14 +14,7 @@ const Mapbox = () => {
 
   return (
     <div className="Mapbox">
-      <div className="header">
-        {/* <a href="">
-          <FontAwesomeIcon className="icon-first" icon={faArrowLeft} />
-        </a>
-        <a className="go-back" href="/">
-          Quay lại
-        </a> */}
-      </div>
+      <div className="header"></div>
       <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ minHeight: '75vh', minWidth: '75vw' }}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
