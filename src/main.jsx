@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import * as bootstrap from 'bootstrap';
+// import * as bootstrap from 'bootstrap';
 import '@styles/styles.scss';
 
 // import { Provider } from 'react-redux';

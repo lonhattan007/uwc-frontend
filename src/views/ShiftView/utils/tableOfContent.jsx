@@ -147,9 +147,10 @@ function ShiftTable({ shiftData }) {
                 <td>{shift.completedTask}</td>
                 <td>
                   <NavLink to="/tasks">
-                  <div className={cx('button-container')}>
-                    <Button className={cx('show-btn')}>Chi tiết</Button>
-                  </div></NavLink>
+                    <div className={cx('button-container')}>
+                      <Button className={cx('show-btn')}>Chi tiết</Button>
+                    </div>
+                  </NavLink>
                 </td>
                 <td
                   className={index === lastRowIndex ? cx('xxx') : ''}

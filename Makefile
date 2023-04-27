@@ -14,8 +14,5 @@ install:
 format:
 	npx prettier --write .
 
-linter:
-	npx eslint
-
 test:
 	npm run test
